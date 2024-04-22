@@ -36,12 +36,12 @@ class GameManager:
 
 
     def get_score(self, guess: str) -> list:
-        """ Returns a list of five numbers in {0,1,2}, where each number corresponds
+        """ Returns a list of five chars in {0,1,2}, where each char corresponds
             to a letter in the guess: 
                 0 is incorrect,
                 1 is incorrect postion,
                 2 is correct,
-            (For example, guessing the correct answer would return '22222') """
+            (For example, guessing the correct answer would return ['2','2','2','2','2']) """
         
         #ToDo: If guess is length 5 and guess in legal_words then return none
         
@@ -72,13 +72,13 @@ class GameManager:
                 # Remove from remaining chars
                 remaining_chars.subtract(char)
         
-        # Remaining chars in score are left as 0
+        # Remaining digits in score are left as '0'
         return score
 
 
     def start(self, answer: str, use_AI: bool) -> bool:
         """ Run a game of Wordle using the given answer. Returns true if game is won.
-            The source of guesses (user or AI) is determined by use_AI """
+            If use_AI is False, then the user will be prompted for guesses """
 
         print("Starting Wordle Solver:")
 
