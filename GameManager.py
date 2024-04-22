@@ -1,6 +1,11 @@
 from collections import Counter
 
 
+# The rules of Wordle
+MAX_GUESS_COUNT = 6
+WORD_LENGTH = 5
+
+
 def get_AI_guess() -> str:
     
     # ToDo: Implement
@@ -18,12 +23,11 @@ def get_user_guess() -> str:
 
 
 def get_guess(from_AI: bool) -> str:
-    """ If the guess is not from_AI it will prompt the user """
+    """ If the guess is not from_AI, then it will prompt the user """
     if from_AI:
         return get_AI_guess()
     else:
         return get_user_guess()
-
 
 
 class GameManager:
@@ -46,7 +50,7 @@ class GameManager:
         #ToDo: If guess is length 5 and guess in legal_words then return none
         
         # Start with five zeros (all incorrect)
-        score = ['0'] * 5
+        score = ['0'] * WORD_LENGTH
         # Keep track of chars in the answer that haven't been guessed 
         remaining_chars = Counter(self.answer) 
 
@@ -87,7 +91,7 @@ class GameManager:
         self.answer = answer
         
         # Run game loop until out of guesses
-        while self.guess_count < 6:
+        while self.guess_count < MAX_GUESS_COUNT:
             # Get guess
             guess = get_guess(use_AI)
             self.guess_count += 1
@@ -103,6 +107,7 @@ class GameManager:
                 print(guess, "is correct! You win!")
                 return True
 
+        # Reached maximum number of guesses
         print("You ran out of guesses. You lose.")
         return False
 
