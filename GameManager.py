@@ -7,6 +7,7 @@ def get_AI_guess() -> str:
 
     return None
 
+
 def get_user_guess() -> str:
     """ Prompts the user for a guess in the terminal and returns their input """
     # Get user input
@@ -15,13 +16,13 @@ def get_user_guess() -> str:
     # Normalize to uppercase
     return guess.upper()
 
-def get_guess(from_terminal: bool) -> str:
-    """ If the guess is from_terminal it will prompt the user """
-    if from_terminal:
-        return get_user_guess()
-    else
-        return get_AI_guess()
 
+def get_guess(from_AI: bool) -> str:
+    """ If the guess is not from_AI it will prompt the user """
+    if from_AI:
+        return get_AI_guess()
+    else:
+        return get_user_guess()
 
 
 
@@ -75,9 +76,9 @@ class GameManager:
         return score
 
 
-    def start(self, answer: str) -> bool:
+    def start(self, answer: str, use_AI: bool) -> bool:
         """ Run a game of Wordle using the given answer. Returns true if game is won.
-            The source of guesses (player of AI) is determined by the get_guess() function. """
+            The source of guesses (user or AI) is determined by use_AI """
 
         print("Starting Wordle Solver:")
 
@@ -88,7 +89,7 @@ class GameManager:
         # Run game loop until out of guesses
         while self.guess_count < 6:
             # Get guess
-            guess = get_guess()
+            guess = get_guess(use_AI)
             self.guess_count += 1
             # Score each character
             score = self.get_score(guess)
@@ -106,11 +107,12 @@ class GameManager:
         return False
 
 
+
 def main():
     game = GameManager()
-    game.start("LASER")
+    game.start(answer="LASER", use_AI=False) # Try to guess LASER using the terminal
+
+
 
 if __name__ == '__main__':
     main()
-
-
