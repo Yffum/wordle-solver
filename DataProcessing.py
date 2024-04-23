@@ -24,7 +24,7 @@ def import_lexicon(filepath: str='Data/wordle_lexicon.txt') -> set:
 def calculate_letter_probability_distribution(lexicon: set) -> list:
     """ Returns a list of Counters. The list index corresponds to the position of the char.
         The Counter keys are letters in the alphabet, and the values are the probability
-        of the letter being in that position. """
+        of the letter being in that position for the given lexicon. """
     # Each index of letter_counts corresponds to a character position
     # For each position, there is a table of character counts
     letter_counts = [Counter() for i in range(WORD_LENGTH)] 
