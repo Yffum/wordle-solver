@@ -3,13 +3,13 @@ from collections import Counter
 import time
 import os
 
-from SearchAgent import SearchAgent
-import DataProcessing
-
 # Global Variables
 ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 MAX_GUESS_COUNT = 100
 WORD_LENGTH = 5
+
+from SearchAgent import SearchAgent
+import DataProcessing
 
 
 class GameManager:

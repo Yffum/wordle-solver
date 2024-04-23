@@ -3,6 +3,7 @@ from GameManager import GameManager
 from SearchAgent import SearchAgent
 
 import pandas as pd
+import time
 from datetime import datetime
 
 def test_all_words():
@@ -12,8 +13,11 @@ def test_all_words():
 
     data = []
     for i, word in enumerate(lexicon):
-        if i > 20:
-            break
+
+        # Testing
+        # if i > 100:
+        #     break
+
         # Create new search agent and game
         agent = SearchAgent(lexicon, letter_probs)
         game = GameManager(lexicon, agent)
@@ -62,8 +66,13 @@ def test_all_words():
         f.write("Top 10 Hardest Games (most guesses):\n")
     df.head(10).to_csv(filename, mode='a', index=False)
 
+
 def main():
+    start_time = time.process_time()
     test_all_words()
+    duration = time.process_time() - start_time
+
+    print("Total test duration:", round(duration/60, 2), "minutes")
 
 
 if __name__ == '__main__':
