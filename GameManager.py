@@ -1,4 +1,7 @@
 from collections import Counter
+#import resource
+import time
+import os
 
 from SearchAgent import SearchAgent
 import DataProcessing
@@ -7,29 +10,6 @@ import DataProcessing
 ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 MAX_GUESS_COUNT = 100
 WORD_LENGTH = 5
-
-
-def get_AI_guess(agent: SearchAgent) -> str:
-    guess = agent.brute_force_search()
-    print('Agent guess:     ', guess)    
-    return guess
-
-
-def get_user_guess() -> str:
-    """ Prompts the user for a guess in the terminal and returns their input """
-    # Get user input
-    print("Enter your guess: ", end="")
-    guess = input()
-    # Normalize to uppercase
-    return guess.upper()
-
-
-def get_guess(agent: SearchAgent=None) -> str:
-    """ If the guess is not from_AI, then it will prompt the user """
-    if agent is None:
-        return get_user_guess()
-    else:
-        return get_AI_guess(agent)
 
 
 class GameManager:
@@ -41,6 +21,39 @@ class GameManager:
         self.guess_count = 0
         self.legal_words = lexicon
         self.agent = agent
+
+        # Stats
+        self.guess_durations = []
+
+    def get_AI_guess(self, agent: SearchAgent) -> str:
+        """ Returns a guess word from the given search agent """
+        # Track time
+        start_time = time.process_time()
+        # Get guess from agent
+        guess = agent.brute_force_search()
+        # Record time
+        guess_duration = time.process_time() - start_time
+        self.guess_durations.append(guess_duration)
+        # Print and return
+        print('Agent guess:     ', guess)    
+        return guess
+
+
+    def get_user_guess() -> str:
+        """ Prompts the user for a guess word in the terminal and returns their input """
+        # Get user input
+        print("Enter your guess: ", end="")
+        guess = input()
+        # Normalize to uppercase
+        return guess.upper()
+
+
+    def get_guess(self, agent: SearchAgent=None) -> str:
+        """ If the guess is not from_AI, then it will prompt the user """
+        if agent is None:
+            return self.get_user_guess()
+        else:
+            return self.get_AI_guess(agent)
 
 
     def get_letter_ratings(self, guess: str) -> list:
@@ -90,7 +103,7 @@ class GameManager:
         return letter_ratings
 
 
-    def start(self, answer: str, use_AI: bool) -> bool:
+    def start(self, answer: str, use_AI: bool=True) -> bool:
         """ Run a game of Wordle using the given answer. Returns true if game is won.
             If use_AI is False, then the user will be prompted for guesses """
 
@@ -103,7 +116,7 @@ class GameManager:
         # Run game loop until out of guesses
         while self.guess_count < MAX_GUESS_COUNT:
             # Get guess
-            guess = get_guess(self.agent)
+            guess = self.get_guess(self.agent)
             # Rate each character
             letter_ratings = self.get_letter_ratings(guess)
 
@@ -131,6 +144,31 @@ class GameManager:
         # Reached maximum number of guesses
         print("You ran out of guesses. You lose.")
         return False
+    
+
+    def test(self, answer: str) -> dict:
+        """ Runs solver and returns dictionary of statistics """
+        # Track time
+        start_time = time.process_time()
+        # Run game
+        self.start(answer)
+        # Record game time
+        game_duration = time.process_time() - start_time
+
+        # Calculate avg guess time
+        avg_guess_time = sum(self.guess_durations)/len(self.guess_durations)
+        # Get maximum RAM usage
+        #max_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        #max_ram = round(max_ram/1024, 8)  # Convert to megabytes and round
+
+        # Create row for DataFrame
+        data_row = {'Answer': answer,
+                    'Guess Count': self.guess_count, 
+                    'Avg Guess Time (s)': avg_guess_time,
+                    'Game Duration (s)' : game_duration}
+                    #'Max RAM (MB)' : max_ram} 
+
+        return data_row
 
 
 
@@ -144,7 +182,7 @@ def main():
 
 
     game = GameManager(lexicon, agent)
-    game.start(answer="BESTS", use_AI=True) # Try to guess LASER using the terminal
+    game.start(answer="GALES", use_AI=True) # Try to guess LASER using the terminal
 
 
 

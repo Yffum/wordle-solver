@@ -1,4 +1,5 @@
 import queue
+import copy
 
 class SearchAgent:
     def __init__(self, vocab: set, letter_probability_distribution: list):
@@ -6,13 +7,9 @@ class SearchAgent:
         self.vocab = vocab
         # Set of previously guessed words
         self.prev_guesses = set()
-        # List of original letter probabilities
-        self.original_letter_probs = letter_probability_distribution
         # List of adjusted letter probabilities
-        self.letter_probs = list(self.original_letter_probs)
-        # ToDo: not a deep copy (this list contains pointers to the letters in 
-        #       letter_probs, rather than copies). Maybe create new data 
-        #       type for letter_probs
+        self.letter_probs = copy.deepcopy(letter_probability_distribution)
+        
 
     def adjust_letter_probs(self, guess: str, letter_ratings: list):
         """ Takes a guess and its corresponding ratings, and updates
@@ -67,12 +64,13 @@ class SearchAgent:
         # Get best word from priority queue
         best_score, best_word = rated_words.get()
 
-        print("Best Score:", best_score, "Best Guess:", best_word)
+        # TESTING
+        # print("Best Score:", best_score, "Best Guess:", best_word)
 
-        while not rated_words.empty():
-             score, word = rated_words.get()
-             if word == "LASER":
-                print("Score:", score, "Word:", word)
+        # while not rated_words.empty():
+        #      score, word = rated_words.get()
+        #      if word == "LASER":
+        #         print("Score:", score, "Word:", word)
 
         # Add best guess to previous guesses and return it
         self.prev_guesses.add(best_word)
