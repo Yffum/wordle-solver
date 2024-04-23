@@ -144,7 +144,7 @@ def main():
 
 
     game = GameManager(lexicon, agent)
-    game.start(answer="LASER", use_AI=True) # Try to guess LASER using the terminal
+    game.start(answer="BESTS", use_AI=True) # Try to guess LASER using the terminal
 
 
 
