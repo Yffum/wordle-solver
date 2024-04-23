@@ -1,7 +1,9 @@
 from collections import Counter
 
+import DataProcessing
 
-# The rules of Wordle
+# Global Variables
+ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 MAX_GUESS_COUNT = 6
 WORD_LENGTH = 5
 
@@ -33,10 +35,11 @@ def get_guess(from_AI: bool) -> str:
 class GameManager:
     """ Runs the Wordle game loop """
 
-    def __init__(self):
+    def __init__(self, lexicon: set):
         """ The start() function sets the answer, and resets the guess_count to 0"""
         self.answer = None
         self.guess_count = 0
+        self.legal_words = lexicon
 
 
     def get_score(self, guess: str) -> list:
@@ -84,7 +87,7 @@ class GameManager:
         """ Run a game of Wordle using the given answer. Returns true if game is won.
             If use_AI is False, then the user will be prompted for guesses """
 
-        print("Starting Wordle Solver:")
+        print("Running Wordle:")
 
         # Set up game
         self.guess_count = 0
@@ -114,8 +117,17 @@ class GameManager:
 
 
 def main():
-    game = GameManager()
-    game.start(answer="LASER", use_AI=False) # Try to guess LASER using the terminal
+
+    lexicon = DataProcessing.import_lexicon()
+    letter_probs = DataProcessing.calculate_letter_probability_distribution(lexicon)
+
+    print("Lexicon length:", len(lexicon))
+
+    for table in letter_probs:
+        print(table)
+
+    game = GameManager(lexicon)
+    #game.start(answer="LASER", use_AI=False) # Try to guess LASER using the terminal
 
 
 
