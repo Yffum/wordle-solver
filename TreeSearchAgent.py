@@ -180,6 +180,9 @@ class TreeSearchAgent:
         
         
     def tree_search(self) -> str:
+        """ Performs a tree search and returns the first word it finds with 
+            a score above self.score_threshold. Returns None if no word is
+            found above the threshold. """
         # Track words already parsed
         prev_words = set()
 
@@ -215,6 +218,9 @@ class TreeSearchAgent:
         
         
     def tree_search_with_threshold(self) -> str:
+        """ Repeatedly performs self.tree_search() while lowering the threshold until
+            a word is found, or the threshold can't be lowered. Returns the found word,
+            or None if no word is found. """
         # The threshold decreases by this amount when the search fails
         threshold_decrement = 0.2
         # Calculate word score threshold based on number of confirmed letters
