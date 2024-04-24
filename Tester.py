@@ -16,8 +16,8 @@ def test_all_words():
     for i, word in enumerate(lexicon):
 
         # Testing
-        # if i > 100:
-        #     break
+        if i > 100:
+            break
 
         # Create new search agent and game
         agent = TreeSearchAgent(lexicon, letter_probs)

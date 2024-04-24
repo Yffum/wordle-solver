@@ -32,7 +32,7 @@ class GameManager:
         # Track time
         start_time = time.process_time()
         # Get guess from agent
-        guess = agent.tree_search()
+        guess = agent.tree_search_with_threshold()
         # Record time
         guess_duration = time.process_time() - start_time
         self.guess_durations.append(guess_duration)
@@ -187,7 +187,7 @@ def main():
 
 
     game = GameManager(lexicon, agent)
-    game.start(answer="GALES", use_AI=True) # Try to guess LASER using the terminal
+    game.start(answer="BLUED", use_AI=True) # Try to guess LASER using the terminal
 
 
 
