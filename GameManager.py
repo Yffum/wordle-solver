@@ -8,15 +8,17 @@ ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 MAX_GUESS_COUNT = 100
 WORD_LENGTH = 5
 
-from SearchAgent import SearchAgent
 import DataProcessing
+from SearchAgent import SearchAgent
+from TreeSearchAgent import TreeSearchAgent
+
 
 
 class GameManager:
     """ Runs the Wordle game loop """
 
-    def __init__(self, lexicon: set, agent: SearchAgent=None):
-        """ The start() function sets the answer, and resets the guess_count to 0"""
+    def __init__(self, lexicon: set, agent=None):
+        """ The start() function sets the answer, and resets the guess_count to 0 """
         self.answer = None
         self.guess_count = 0
         self.legal_words = lexicon
@@ -25,12 +27,12 @@ class GameManager:
         # Stats
         self.guess_durations = []
 
-    def get_AI_guess(self, agent: SearchAgent) -> str:
+    def get_AI_guess(self, agent) -> str:
         """ Returns a guess word from the given search agent """
         # Track time
         start_time = time.process_time()
         # Get guess from agent
-        guess = agent.brute_force_search()
+        guess = agent.tree_search()
         # Record time
         guess_duration = time.process_time() - start_time
         self.guess_durations.append(guess_duration)
@@ -39,7 +41,7 @@ class GameManager:
         return guess
 
 
-    def get_user_guess() -> str:
+    def get_user_guess(self) -> str:
         """ Prompts the user for a guess word in the terminal and returns their input """
         # Get user input
         print("Enter your guess: ", end="")
@@ -48,13 +50,27 @@ class GameManager:
         return guess.upper()
 
 
-    def get_guess(self, agent: SearchAgent=None) -> str:
+    def get_guess(self, agent=None) -> str:
         """ If the guess is not from_AI, then it will prompt the user """
         if agent is None:
             return self.get_user_guess()
         else:
             return self.get_AI_guess(agent)
 
+    def validate(self, guess: str) -> bool:
+        """ Returns true if the guess is a valid word in the dictionary """
+        if guess == None:
+            print("No guess found.")
+            return False    
+        if len(guess) != 5:
+            print("The length of the guess must be five letters.")
+            return False
+        if guess not in self.legal_words:
+            print(guess, "is not in the game dictionary.")
+            return False
+        # Else word is valid
+        return True
+        
 
     def get_letter_ratings(self, guess: str) -> list:
         """ Takes a guess and returns a list of five chars in {0,1,2}, where each 
@@ -63,15 +79,6 @@ class GameManager:
                 1 is incorrect postion,
                 2 is correct,
             (For example, guessing the correct answer would return ['2','2','2','2','2']) """
-        
-        # Make sure guess is legal
-        if len(guess) != 5:
-            print("The length of the guess must be five letters.")
-            return None
-        if guess not in self.legal_words:
-            print(guess, "is not in the game dictionary.")
-            return None
-        
         # Start with five zeros (all incorrect)
         letter_ratings = ['0'] * WORD_LENGTH
         # Keep track of chars in the answer that haven't been guessed 
@@ -117,16 +124,14 @@ class GameManager:
         while self.guess_count < MAX_GUESS_COUNT:
             # Get guess
             guess = self.get_guess(self.agent)
+            # If guess isn't in dictionary, try again
+            if not self.validate(guess):
+                continue
             # Rate each character
             letter_ratings = self.get_letter_ratings(guess)
-
-            # If letter_ratings is None, the guess didn't work so try again
-            if letter_ratings is None:
-                continue
-
+            # Count guess
             self.guess_count += 1
-            
-            # Convert to string format
+            # Convert letter rating to string format
             rating_str = ''.join(letter_ratings)
 
             # Print letter ratings aligned with guess
@@ -178,7 +183,7 @@ def main():
     letter_probs = DataProcessing.calculate_letter_probability_distribution(lexicon)
 
     # Create search agent using probabilities
-    agent = SearchAgent(lexicon, letter_probs)
+    agent = TreeSearchAgent(lexicon, letter_probs)
 
 
     game = GameManager(lexicon, agent)
