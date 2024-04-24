@@ -16,8 +16,8 @@ class SearchAgent:
         self.letter_probs = copy.deepcopy(letter_probability_distribution)
         # These letters are known to be in the word, but we don't know the position
         self.known_letters = Counter()
-        # Letters to be removed from the vocab after iterating through the vocab
-        self.letters_to_remove = set()
+        # Words to be removed from the vocab after iterating through the vocab
+        self.words_to_remove = set()
 
     def adjust_letter_probs(self, guess: str, letter_ratings: list):
         """ Takes a guess and its corresponding ratings, and updates
@@ -71,7 +71,7 @@ class SearchAgent:
             # If any letter prob is 0, then the entire word score is 0
             if prob == 0:
                 # Remove word from vocab after iterating through it
-                self.letters_to_remove.add(word)
+                self.words_to_remove.add(word)
                 return 0
             
             # Increase probability if letter is known
@@ -96,13 +96,13 @@ class SearchAgent:
             # Use negative score because PriorityQueue is a min heap
             rated_words.put((-score, word))
         # Remove impossible words which have a score of 0 from vocab
-        self.vocab -= self.letters_to_remove
-        self.letters_to_remove.clear()
+        self.vocab -= self.words_to_remove
+        self.words_to_remove.clear()
         # Get best word from priority queue
         best_score, best_word = rated_words.get()
 
         # TESTING
-        # print("Best Score:", best_score, "Best Guess:", best_word)
+        print("Best Score:", best_score, "Best Guess:", best_word)
 
         # while not rated_words.empty():
         #      score, word = rated_words.get()

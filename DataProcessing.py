@@ -2,8 +2,10 @@ from collections import Counter
 
 from GameManager import WORD_LENGTH
 
+
+
 def import_lexicon(filepath: str='Data/wordle_lexicon.txt') -> set:
-    """ Returns a set of words, read from each line in the given .csv file """
+    """ Returns a set of words, read from each line in the given file """
     lexicon = set()
     # Open the .csv file
     with open(filepath, 'r') as file:
@@ -39,7 +41,7 @@ def calculate_letter_probability_distribution(lexicon: set) -> list:
     # Normalize counts by lexicon length to get probabilites
     for table in letter_counts:
         # Calculate probability of each letter at position i
-        for char in table:
+        for char in table: 
             # Number of decimal digits
             precision = 5
             # Divide count by lexicon length and round

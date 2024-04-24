@@ -1,6 +1,7 @@
 import DataProcessing
 from GameManager import GameManager
 from SearchAgent import SearchAgent
+from TreeSearchAgent import TreeSearchAgent
 
 import pandas as pd
 import time
@@ -15,11 +16,11 @@ def test_all_words():
     for i, word in enumerate(lexicon):
 
         # Testing
-        # if i > 100:
-        #     break
+        if i > 100:
+            break
 
         # Create new search agent and game
-        agent = SearchAgent(lexicon, letter_probs)
+        agent = TreeSearchAgent(lexicon, letter_probs)
         game = GameManager(lexicon, agent)
         # Play game using word as answer
         datum = game.test(answer=word)
