@@ -1,6 +1,6 @@
 from collections import Counter
 
-from GameManager import WORD_LENGTH
+from constants import WORD_LENGTH
 
 
 
@@ -23,7 +23,7 @@ def import_lexicon(filepath: str='Data/wordle_lexicon.txt') -> set:
 
 
 
-def calculate_letter_probability_distribution(lexicon: set) -> list:
+def calculate_letter_probability_distribution(lexicon: set) -> list[Counter]:
     """ Returns a list of Counters. The list index corresponds to the position of the char.
         The Counter keys are letters in the alphabet, and the values are the probability
         of the letter being in that position for the given lexicon. """

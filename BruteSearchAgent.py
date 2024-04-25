@@ -1,4 +1,4 @@
-from GameManager import WORD_LENGTH
+from constants import WORD_LENGTH
 
 from collections import Counter
 import queue
@@ -10,7 +10,7 @@ class BruteSearchAgent:
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
-    def __init__(self, vocab: set, letter_probability_distribution: list):
+    def __init__(self, vocab: set, letter_probability_distribution: list[Counter]):
         # Words that can be guessed
         self.vocab = set(vocab)
         # List of adjusted letter probabilities
@@ -21,7 +21,17 @@ class BruteSearchAgent:
         self.words_to_remove = set()
 
 
-    def adjust_letter_probs(self, guess: str, letter_ratings: list):
+    # --- Define abstract methods
+    # See SearchAgent.py
+    def get_guess(self) -> str:
+        return self.brute_force_search()
+
+    # See SearchAgent.py
+    def process_feedback(self, guess: str, letter_ratings: list[int]):
+        return self.adjust_letter_probs(guess, letter_ratings)
+        
+
+    def adjust_letter_probs(self, guess: str, letter_ratings: list[int]):
         """ Takes a guess and its corresponding ratings, and updates
             letter_probs for each character in the guess. """
         # Track letters that are in the word, but we don't know the position

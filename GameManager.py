@@ -1,16 +1,11 @@
+import DataProcessing
+from constants import MAX_GUESS_COUNT, WORD_LENGTH
+
 from collections import Counter
 #import resource
 import time
 import os
 
-# Global Variables
-ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-MAX_GUESS_COUNT = 100
-WORD_LENGTH = 5
-
-import DataProcessing
-from BruteSearchAgent import BruteSearchAgent
-from TreeSearchAgent import TreeSearchAgent
 
 
 
@@ -33,7 +28,7 @@ class GameManager:
         # Track time
         start_time = time.process_time()
         # Get guess from agent
-        guess = agent.tree_search_with_threshold()
+        guess = agent.get_guess()
         # Record time
         guess_duration = time.process_time() - start_time
         self.guess_durations.append(guess_duration)
@@ -191,16 +186,30 @@ class GameManager:
         return data_row
 
 
+from BruteSearchAgent import BruteSearchAgent
+from TreeSearchAgent import TreeSearchAgent
 
+def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], mode: str=None):
+    """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
+        word scoring is determined by the given letter probability distribution. The mode determines
+        parameters for certain agents, e.g. TreeSearchAgent, which has modes {'BFS', 'DFS', 'ASTAR'}"""
+    if agent_type == 'brute':
+        return BruteSearchAgent(lexicon, letter_probs)
+    if agent_type == 'tree':
+        return TreeSearchAgent(lexicon, letter_probs, mode)
+
+
+# This modules's main method is used for one-off testing
 def main():
     # Process lexicon and calculate letter probabilities
     lexicon = DataProcessing.import_lexicon()
     letter_probs = DataProcessing.calculate_letter_probability_distribution(lexicon)
 
     # Create search agent using probabilities
-    agent = TreeSearchAgent(lexicon, letter_probs)
+    #agent = TreeSearchAgent(lexicon, letter_probs)
 
-
+    agent = create_search_agent('brute', lexicon, letter_probs)
+    
     game = GameManager(lexicon, agent)
     game.start(answer="GESTS", use_AI=True) # Try to guess LASER using the terminal
 

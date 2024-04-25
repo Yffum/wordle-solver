@@ -1,4 +1,5 @@
-from GameManager import WORD_LENGTH, ALPHABET
+from constants import WORD_LENGTH, ALPHABET
+from SearchAgent import SearchAgent
 
 from collections import Counter
 import queue
@@ -19,12 +20,12 @@ class  Node:
 
 
 
-class TreeSearchAgent:
+class TreeSearchAgent(SearchAgent):
     """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
-    def __init__(self, vocab: set, letter_probability_distribution: list, mode: str='BFS'):
+    def __init__(self, vocab: set, letter_probability_distribution: list[Counter], mode: str='None'):
         # Words that can be guessed
         self.vocab = set(vocab)
         # List of adjusted letter probabilities
@@ -51,6 +52,8 @@ class TreeSearchAgent:
         
         # The fringe of nodes that have been expanded but not checked. The type of 
         # this container is determined by the chosen mode 
+        if mode == None:
+            mode = 'BFS' # Default to BFS
         if mode == 'BFS':     
             self.fringe = queue.Queue()
         elif mode == 'DFS':
@@ -59,7 +62,17 @@ class TreeSearchAgent:
             # ToDo NOT IMPLEMENTED ######################
             self.fringe = queue.PriorityQueue()
         else:
-            raise ValueError(mode, "not found. Select from {'BFS', 'DFS', 'ASTAR'}")
+            raise ValueError(f"Mode '{mode}' not found. Select from {'BFS', 'DFS', 'ASTAR'}")
+    
+    
+    # --- Define abstract methods
+    # See SearchAgent.py
+    def get_guess(self) -> str:
+        return self.tree_search_with_threshold()
+
+    # See SearchAgent.py
+    def process_feedback(self, guess: str, letter_ratings: list[int]):
+        return self.adjust_letter_probs(guess, letter_ratings)
         
         
     def clear_fringe(self):
@@ -68,7 +81,7 @@ class TreeSearchAgent:
         self.fringe = fringe_type()
         
 
-    def adjust_letter_probs(self, guess: str, letter_ratings: list):
+    def adjust_letter_probs(self, guess: str, letter_ratings: list[int]):
         """ Takes a guess and its corresponding ratings, and updates
             letter_probs for each character in the guess. """
         # Track letters that are in the word, but we don't know the position
