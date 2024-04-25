@@ -40,16 +40,22 @@ class TreeSearchAgent:
         self.words_to_remove = set()
         # Starting word for tree search, copied from brute force search's first guess
         self.root_word = 'SORES'
-        # Agent guesses the first word found with a score above the threshold
+        # Agent guesses the first word found with a score above this threshold
         self.score_threshold = 0
-
+        # Domains of possible letters for each character in the guess. Each element
+        # corresponds to a char index, and contains the possible letters for that index.
+        # Each domain starts with the entire alphabet and is refined after each guess.
+        self.char_domains = [set(ALPHABET) for _ in range(5)]
+        # Tracks whether agent is on the first guess of the game
+        self.is_first_guess = True
+        
 
     def adjust_letter_probs(self, guess: str, letter_ratings: list):
         """ Takes a guess and its corresponding ratings, and updates
             letter_probs for each character in the guess. """
         # Track letters that are in the word, but we don't know the position
         new_known_letters = Counter()
-        # Check every char and corresponding rating
+        # Check every letter in the guess and its corresponding rating
         for i, rating in enumerate(letter_ratings):
             char = guess[i]
             # If letter is correct, set probability to 1
@@ -61,22 +67,32 @@ class TreeSearchAgent:
                 self.confirmed_letters[i] = char
                 # Set proability to 1
                 self.letter_probs[i][char] = 1
-            # If letter is known, but in the wrong position, track it
+                # Restrict domain to this letter
+                self.char_domains[i] = {char}
+            # If letter is known, but in the wrong position, set prob to 0 and track it
             elif rating == '1':
+                self.letter_probs[i][char] = 0
                 new_known_letters[char] += 1
+                # Remove letter from domain
+                self.char_domains[i].discard(char)
             # If letter is incorrect, set probability to 0
             elif rating == '0':
                 self.letter_probs[i][char] = 0
-                # Adjust probabilities of other positions to 0
+                # Remove letter from domain
+                self.char_domains[i].discard(char)
+                # Adjust probabilities of other positions and remove letter from 
+                # char domains corresponding to those positions
                 # ToDo: I'm not sure whether this accounts for all edge cases
                 # Make sure letter is not already known (without position)
                 if char not in new_known_letters:
                     # Loop through probability tables for every char position
-                    for table in self.letter_probs:
+                    for j, table in enumerate(self.letter_probs):
                         # Make sure letter is not already known (with position)
                         if table[char] != 1:
                             # Set probability to 0
                             table[char] = 0
+                            # Remove letter from domain
+                            self.char_domains[j].discard(char)
         # Add new known letters to persistent list
         for char, count in new_known_letters.items():
             # Only add if the count in the new list is greater
@@ -101,8 +117,6 @@ class TreeSearchAgent:
             prob = self.letter_probs[i][char]
             # If any letter prob is 0, then the entire word score is 0
             if prob == 0:
-                # Remove word from vocab after iterating through it
-                self.words_to_remove.add(word)
                 return 0
             
             # Increase probability if letter is known
@@ -126,8 +140,9 @@ class TreeSearchAgent:
             # Skip confirmed letters
             if i in self.confirmed_letters:
                 continue
-            # Try changing the char to each letter in alphabet
-            for letter in ALPHABET:
+            # Try changing the char to each letter in its domain
+            for letter in self.char_domains[i]:
+                # Make sure it's not the same letter
                 if letter != char:
                     # Insert letter to make new word
                     new_word = node.word[:i] + letter + node.word[i+1:]
@@ -204,7 +219,7 @@ class TreeSearchAgent:
                 self.vocab -= self.words_to_remove
                 self.words_to_remove.clear()
                 # Remove guess from vocab
-                self.vocab.remove(node.word)
+                self.vocab.discard(node.word)
                 # Guess word
                 return node.word
             # Else expand node
@@ -213,7 +228,7 @@ class TreeSearchAgent:
             for succ_node in successors:
                 fringe.put(succ_node)
         # No word was found outside the threshold
-        print("No word found with score above threshold")
+        print("No word found with score above threshold =", self.score_threshold)
         return None
         
         
@@ -223,8 +238,15 @@ class TreeSearchAgent:
             or None if no word is found. """
         # The threshold decreases by this amount when the search fails
         threshold_decrement = 0.2
+        
         # Calculate word score threshold based on number of confirmed letters
         self.score_threshold = self.get_threshold()
+        
+        # Lower threshold if no letter was confirmed from first guess
+        if not self.is_first_guess and len(self.confirmed_letters) == 0:
+            self.score_threshold -= threshold_decrement
+        self.is_first_guess = False
+        
         # Repeat tree search while lowering threshold
         threshold_can_decrease = True
         while threshold_can_decrease:
@@ -232,13 +254,17 @@ class TreeSearchAgent:
             # Search succeeded, return guess
             if guess is not None:
                 return guess
-            # Search failed, check if threshold can decrease
-            if self.score_threshold < 0:
+            # Search failed
+            # If threshold cannot decrease
+            if self.score_threshold == 0:
                 # Break, no guess found
                 threshold_can_decrease = False
             else:
                 # Decrease threshold
                 self.score_threshold -= threshold_decrement
+                # Prevent negative threshold
+                if self.score_threshold < 0:
+                    self.score_threshold = 0
         print("No guess found")
             
         

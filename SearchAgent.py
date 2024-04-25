@@ -34,8 +34,9 @@ class SearchAgent:
                     del self.known_letters[char]
                 # Set proability to 1
                 self.letter_probs[i][char] = 1
-            # If letter is known, but in the wrong position, track it
+            # If letter is known but in the wrong position, set prob to 0 and track it
             elif rating == '1':
+                self.letter_probs[i][char] = 0
                 new_known_letters[char] += 1
             # If letter is incorrect, set probability to 0
             elif rating == '0':

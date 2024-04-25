@@ -16,14 +16,20 @@ def test_all_words():
     for i, word in enumerate(lexicon):
 
         # Testing
-        if i > 100:
-            break
+        # if i > 100:
+        #     break
 
         # Create new search agent and game
         agent = TreeSearchAgent(lexicon, letter_probs)
         game = GameManager(lexicon, agent)
         # Play game using word as answer
         datum = game.test(answer=word)
+        
+        # Interrupt if no data given
+        if datum is None:
+            print("Error: Data not found. Test stopped")
+            return 
+        
         # Record data
         data.append(datum)
 
@@ -31,8 +37,6 @@ def test_all_words():
     df = pd.DataFrame.from_records(data)
 
     # Count successes 
-    max_guesses = 6
-    df['Success'] = df['Guess Count'] <= max_guesses
     success_count = df['Success'].value_counts().get(True, 0)
 
     # Calculate stats

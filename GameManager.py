@@ -58,10 +58,7 @@ class GameManager:
             return self.get_AI_guess(agent)
 
     def validate(self, guess: str) -> bool:
-        """ Returns true if the guess is a valid word in the dictionary """
-        if guess == None:
-            print("No guess found.")
-            return False    
+        """ Returns true if the guess is a valid word in the dictionary """  
         if len(guess) != 5:
             print("The length of the guess must be five letters.")
             return False
@@ -124,6 +121,11 @@ class GameManager:
         while self.guess_count < MAX_GUESS_COUNT:
             # Get guess
             guess = self.get_guess(self.agent)
+            # If guess is none, agent couldn't find a guess
+            if guess is None:
+                print("The agent could not find a guess.")
+                print("The answer was", answer)
+                return False
             # If guess isn't in dictionary, try again
             if not self.validate(guess):
                 continue
@@ -143,11 +145,12 @@ class GameManager:
 
             # If correct, inform user and return true
             if rating_str == '22222':
-                print(guess, "is correct! You win!")
+                print("Success!", guess, "is correct!")
                 return True
 
         # Reached maximum number of guesses
-        print("You ran out of guesses. You lose.")
+        print("Failure. Number of guesses exceeded", MAX_GUESS_COUNT)
+        print("The answer was", answer)
         return False
     
 
@@ -156,7 +159,7 @@ class GameManager:
         # Track time
         start_time = time.process_time()
         # Run game
-        self.start(answer)
+        is_solved = self.start(answer)
         # Record game time
         game_duration = time.process_time() - start_time
 
@@ -165,14 +168,24 @@ class GameManager:
         # Get maximum RAM usage
         #max_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
         #max_ram = round(max_ram/1024, 8)  # Convert to megabytes and round
+        
+        # Testing
+        # Interrupt error
+        if not is_solved:
+            print("Agent was unable to solve the game.")
+            return None
+        
+        # Check if game was successfuly solved
+        max_guesses = 6
+        successful = is_solved and self.guess_count <= max_guesses
 
         # Create row for DataFrame
         data_row = {'Answer': answer,
-                    'Guess Count': self.guess_count, 
+                    'Guess Count': self.guess_count,
+                    'Success' :  successful,
                     'Avg Guess Time (s)': avg_guess_time,
                     'Game Duration (s)' : game_duration}
                     #'Max RAM (MB)' : max_ram} 
-
         return data_row
 
 
@@ -187,7 +200,7 @@ def main():
 
 
     game = GameManager(lexicon, agent)
-    game.start(answer="BLUED", use_AI=True) # Try to guess LASER using the terminal
+    game.start(answer="GESTS", use_AI=True) # Try to guess LASER using the terminal
 
 
 
