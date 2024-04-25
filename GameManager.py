@@ -179,8 +179,8 @@ class GameManager:
         data_row = {'Answer': answer,
                     'Guess Count': self.guess_count,
                     'Success' :  successful,
-                    'Avg Guess Time (s)': avg_guess_time,
-                    'Game Duration (s)' : game_duration}
+                    'Avg Guess Time (ms)': 1000 * avg_guess_time,
+                    'Game Duration (ms)' : 1000 * game_duration}
                     #'Max RAM (MB)' : max_ram} 
         return data_row
 
