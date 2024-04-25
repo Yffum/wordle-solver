@@ -26,14 +26,10 @@ def main():
     # ToDo: SET THE SEARCH AGENT HERE
     
     # Types
-    # {'tree', 'brute'}
-    agent_type = 'tree'
+    # {'brute', 'bfs', 'dfs'}
+    agent_type = 'bfs'
     
-    # Modes
-    # {'dfs', 'bfs', None}
-    agent_mode = 'bfs'
-    
-    Tester.run(agent_type, agent_mode, wordle.lexicon, wordle.letter_probs)
+    Tester.run(agent_type, wordle.lexicon, wordle.letter_probs)
     
     
 
