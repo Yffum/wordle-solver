@@ -4,6 +4,7 @@ from collections import Counter
 import queue
 import copy
 
+
 class BruteSearchAgent:
     """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 

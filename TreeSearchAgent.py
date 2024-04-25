@@ -24,7 +24,7 @@ class TreeSearchAgent:
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
-    def __init__(self, vocab: set, letter_probability_distribution: list):
+    def __init__(self, vocab: set, letter_probability_distribution: list, mode: str='BFS'):
         # Words that can be guessed
         self.vocab = set(vocab)
         # List of adjusted letter probabilities
@@ -48,6 +48,24 @@ class TreeSearchAgent:
         self.char_domains = [set(ALPHABET) for _ in range(5)]
         # Tracks whether agent is on the first guess of the game
         self.is_first_guess = True
+        
+        # The fringe of nodes that have been expanded but not checked. The type of 
+        # this container is determined by the chosen mode 
+        if mode == 'BFS':     
+            self.fringe = queue.Queue()
+        elif mode == 'DFS':
+            self.fringe = queue.LifoQueue()
+        elif mode == 'ASTAR':
+            # ToDo NOT IMPLEMENTED ######################
+            self.fringe = queue.PriorityQueue()
+        else:
+            raise ValueError(mode, "not found. Select from {'BFS', 'DFS', 'ASTAR'}")
+        
+        
+    def clear_fringe(self):
+        """ Clears self.fringe by determining its datatype and re-instantiating """
+        fringe_type = type(self.fringe)
+        self.fringe = fringe_type()
         
 
     def adjust_letter_probs(self, guess: str, letter_ratings: list):
@@ -201,16 +219,16 @@ class TreeSearchAgent:
         # Track words already parsed
         prev_words = set()
 
-        # Create fringe
-        fringe = queue.LifoQueue()
+        # Clear fringe
+        self.clear_fringe()
         # Create and insert root
         root = Node(self.root_word)
-        fringe.put(root)
+        self.fringe.put(root)
 
         # While there are nodes in the fringe
-        while not fringe.empty():
+        while not self.fringe.empty():
             # Get node from fringe
-            node = fringe.get()
+            node = self.fringe.get()
             # If the node's score is above the threshold
             if self.get_score(node.word) > self.score_threshold:
                 # Adjust root node for next search
@@ -226,7 +244,7 @@ class TreeSearchAgent:
             successors = self.expand(node, prev_words)
             # Add successors to fringe
             for succ_node in successors:
-                fringe.put(succ_node)
+                self.fringe.put(succ_node)
         # No word was found outside the threshold
         print("No word found with score above threshold =", self.score_threshold)
         return None
