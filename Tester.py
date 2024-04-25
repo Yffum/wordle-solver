@@ -1,26 +1,50 @@
 import DataProcessing
 from GameManager import GameManager
+from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
 import pandas as pd
 import time
 from datetime import datetime
+from collections import Counter
 
-def test_all_words():
-    # Process lexicon and calculate letter probabilities
-    lexicon = DataProcessing.import_lexicon()
-    letter_probs = DataProcessing.calculate_letter_probability_distribution(lexicon)
 
+def run(agent_type: str, agent_mode: str, lexicon: set, letter_probs: list[Counter]):
+    # Record test time
+    start_time = time.process_time()
+    # Using lexicon as test set for now
+    test(agent_type, agent_mode, lexicon, lexicon, letter_probs)
+    duration = time.process_time() - start_time
+
+    print("Total test duration:", round(duration/60, 2), "minutes")
+
+    
+
+def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], mode: str=None) -> SearchAgent:
+    """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
+        word scoring is determined by the given letter probability distribution. The mode determines
+        parameters for certain agents, e.g. TreeSearchAgent, which has modes {'BFS', 'DFS', 'ASTAR'}"""
+    if agent_type == 'brute':
+        return BruteSearchAgent(lexicon, letter_probs)
+    if agent_type == 'tree':
+        return TreeSearchAgent(lexicon, letter_probs, mode)
+
+
+
+def test(agent_type: str, agent_mode: str, test_set: set, lexicon: set, letter_probs: list[Counter],):
+    """ Runs the solver using the given agent, using each word in test_set as the answer
+        (so the number of games tested is equal to the length of test_set) """
     data = []
-    for i, word in enumerate(lexicon):
+    for i, word in enumerate(test_set):
 
         # Testing
         # if i > 100:
         #     break
 
-        # Create new search agent and game
-        agent = TreeSearchAgent(lexicon, letter_probs)
+        # Create new search agent of given type
+        agent = create_search_agent(agent_type, lexicon, letter_probs, agent_mode)
+        # Create new game
         game = GameManager(lexicon, agent)
         # Play game using word as answer
         datum = game.test(answer=word)
@@ -71,14 +95,3 @@ def test_all_words():
         f.write("Top 10 Hardest Games (most guesses):\n")
     df.head(10).to_csv(filename, mode='a', index=False)
 
-
-def main():
-    start_time = time.process_time()
-    test_all_words()
-    duration = time.process_time() - start_time
-
-    print("Total test duration:", round(duration/60, 2), "minutes")
-
-
-if __name__ == '__main__':
-    main()

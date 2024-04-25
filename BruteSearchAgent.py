@@ -1,11 +1,12 @@
 from constants import WORD_LENGTH
+from SearchAgent import SearchAgent
 
 from collections import Counter
 import queue
 import copy
 
 
-class BruteSearchAgent:
+class BruteSearchAgent(SearchAgent):
     """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 

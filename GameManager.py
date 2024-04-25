@@ -8,7 +8,6 @@ import os
 
 
 
-
 class GameManager:
     """ Runs the Wordle game loop """
 
@@ -186,10 +185,12 @@ class GameManager:
         return data_row
 
 
+
+from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
-def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], mode: str=None):
+def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], mode: str=None) -> SearchAgent:
     """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
         word scoring is determined by the given letter probability distribution. The mode determines
         parameters for certain agents, e.g. TreeSearchAgent, which has modes {'BFS', 'DFS', 'ASTAR'}"""
@@ -197,6 +198,7 @@ def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counte
         return BruteSearchAgent(lexicon, letter_probs)
     if agent_type == 'tree':
         return TreeSearchAgent(lexicon, letter_probs, mode)
+
 
 
 # This modules's main method is used for one-off testing

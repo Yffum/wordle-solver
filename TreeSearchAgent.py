@@ -37,8 +37,6 @@ class TreeSearchAgent(SearchAgent):
         self.confirmed_letters = dict()
         # These letters are known to be in the word, but we don't know the position
         self.known_letters = Counter()
-        # Words to be removed from the vocab after iterating through the vocab
-        self.words_to_remove = set()
         # Starting word for tree search, copied from brute force search's first guess
         self.root_word = 'SORES'
         # Agent guesses the first word found with a score above this threshold
@@ -53,16 +51,16 @@ class TreeSearchAgent(SearchAgent):
         # The fringe of nodes that have been expanded but not checked. The type of 
         # this container is determined by the chosen mode 
         if mode == None:
-            mode = 'BFS' # Default to BFS
-        if mode == 'BFS':     
+            mode = 'bfs' # Default to BFS
+        if mode == 'bfs':     
             self.fringe = queue.Queue()
-        elif mode == 'DFS':
+        elif mode == 'dfs':
             self.fringe = queue.LifoQueue()
-        elif mode == 'ASTAR':
+        elif mode == 'astar':
             # ToDo NOT IMPLEMENTED ######################
             self.fringe = queue.PriorityQueue()
         else:
-            raise ValueError(f"Mode '{mode}' not found. Select from {'BFS', 'DFS', 'ASTAR'}")
+            raise ValueError(f"Mode '{mode}' not found. Select from {'bfs', 'dfs', 'astar'}")
     
     
     # --- Define abstract methods
@@ -246,9 +244,6 @@ class TreeSearchAgent(SearchAgent):
             if self.get_score(node.word) > self.score_threshold:
                 # Adjust root node for next search
                 self.root_word = node.word
-                # Remove impossible words from vocab
-                self.vocab -= self.words_to_remove
-                self.words_to_remove.clear()
                 # Remove guess from vocab
                 self.vocab.discard(node.word)
                 # Guess word
