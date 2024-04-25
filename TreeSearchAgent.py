@@ -20,7 +20,7 @@ class  Node:
 
 
 class TreeSearchAgent:
-    """ A SearchAgent must be instantiated with a vocabulary of words it can guess, 
+    """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
@@ -240,7 +240,7 @@ class TreeSearchAgent:
         threshold_decrement = 0.2
         
         # Calculate word score threshold based on number of confirmed letters
-        self.score_threshold = self.get_threshold()
+        self.score_threshold = self.get_threshold_alt()
         
         # Lower threshold if no letter was confirmed from first guess
         if not self.is_first_guess and len(self.confirmed_letters) == 0:

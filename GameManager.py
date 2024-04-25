@@ -9,7 +9,7 @@ MAX_GUESS_COUNT = 100
 WORD_LENGTH = 5
 
 import DataProcessing
-from SearchAgent import SearchAgent
+from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
 
@@ -26,6 +26,7 @@ class GameManager:
 
         # Stats
         self.guess_durations = []
+
 
     def get_AI_guess(self, agent) -> str:
         """ Returns a guess word from the given search agent """
@@ -56,6 +57,7 @@ class GameManager:
             return self.get_user_guess()
         else:
             return self.get_AI_guess(agent)
+
 
     def validate(self, guess: str) -> bool:
         """ Returns true if the guess is a valid word in the dictionary """  

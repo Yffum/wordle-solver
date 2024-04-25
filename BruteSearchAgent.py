@@ -4,8 +4,8 @@ from collections import Counter
 import queue
 import copy
 
-class SearchAgent:
-    """ A SearchAgent must be instantiated with a vocabulary of words it can guess, 
+class BruteSearchAgent:
+    """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
@@ -18,6 +18,7 @@ class SearchAgent:
         self.known_letters = Counter()
         # Words to be removed from the vocab after iterating through the vocab
         self.words_to_remove = set()
+
 
     def adjust_letter_probs(self, guess: str, letter_ratings: list):
         """ Takes a guess and its corresponding ratings, and updates
@@ -85,6 +86,7 @@ class SearchAgent:
             score += prob
         # Return rounded score
         return round(score, 3)
+
 
     def brute_force_search(self):
         """ Scores every word in the vocab based on the sum of letter probabilities, 

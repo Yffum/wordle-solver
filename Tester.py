@@ -1,6 +1,6 @@
 import DataProcessing
 from GameManager import GameManager
-from SearchAgent import SearchAgent
+from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
 import pandas as pd
