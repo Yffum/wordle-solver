@@ -25,6 +25,10 @@ def main():
     
     # ToDo: SET THE SEARCH AGENT HERE
     
+    # To add new agent type, have the agent's class inherit SearchAgent and implement the
+    # abstract methods. Then add a condition for the new agent type to create_search_agent() 
+    # in Tester.py
+    
     # Types
     # {'brute', 'bfs', 'dfs'}
     agent_type = 'bfs'

@@ -42,8 +42,8 @@ def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counte
     data = []
     for i, word in enumerate(test_set):
         # Testing
-        if i > 100:
-            break
+        # if i > 100:
+        #     break
 
         # Create new search agent of given type
         agent = create_search_agent(agent_type, lexicon, letter_probs)
