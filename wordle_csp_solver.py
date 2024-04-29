@@ -1,5 +1,6 @@
 
 import functools
+import time
 
 
 WORD_LENGTH = 5
@@ -63,12 +64,16 @@ class Dictionary:
 
         self.feedback = GuessStatus()
 
-        self.guesses = self.get_words_from_file('Data/valid_guesses.csv')
-        self.answers = self.get_words_from_file('Data/valid_solutions.csv')
-    #    self.answers = self.get_words_from_file('Data/valid_guesses.csv')
+    #    self.guesses = self.get_words_from_file('Data/valid_guesses.csv')
+    #    self.answers = self.get_words_from_file('Data/valid_solutions.csv')
+        self.guesses = self.get_words_from_file('Data/wordle_lexicon.txt')
+        self.answers = self.get_words_from_file('Data/wordle_lexicon.txt')
 
         self.frequency = self.generate_letter_frequency(self.answers)
     #    self.word_scores = self.calculate_word_scores(self.guesses + self.answers, False)
+
+        # Stats
+        self.guess_durations = []
 
     def get_words_from_file(self, filename):
         word_arr = []
@@ -150,24 +155,39 @@ class Dictionary:
         return filtered_word
     
     def get_next_guess(self):
+
+        start_time = time.process_time()
+        
+        # Get guess from agent
         if self.feedback.get_used() == 0:
             return
         
         # always update answers first
         self.answers = self.update_answers(self.answers)
 
+        # Record time
+        guess_duration = time.process_time() - start_time
+        self.guess_durations.append(guess_duration)
+        
         # first word in answers    
         return self.answers[0]
 
 class CSPSolver:
     def __init__(self, target):
         self.dictionary = Dictionary()
+        # Stats
+        self.guess_durations = self.dictionary.guess_durations
 
         # store guessed words
         self.guess_list = list()
         self.target = target.upper()
 
         self.is_solved = False
+
+        # Taly: check variable again
+        self.answer = None
+        self.guess_count = 0
+
 
     def generate_feedback(self, guess):
         for (index, letter) in enumerate(guess):
@@ -181,8 +201,13 @@ class CSPSolver:
             else:
                 # letter is not in the word: gray
                 self.dictionary.feedback.update_gray(letter)
+    
+    def test(self, starting_word = "SALET"):
+        """ Runs solver and returns dictionary of statistics """
+        # Track time
+        start_time = time.process_time()
 
-    def solve(self, starting_word = "SALET"):
+        # Run game
         guess = starting_word if starting_word else self.dictionary.get_next_guess()
 
         while not self.is_solved:
@@ -197,5 +222,47 @@ class CSPSolver:
                 self.generate_feedback(guess)
                 guess = self.dictionary.get_next_guess()
 
-        return (guess, len(self.guess_list), self.guess_list)
+
+        self.guess_count = len(self.guess_list)
+        self.answer = self.guess_list[-1]
+
+        print(self.answer, self.guess_count, self.guess_list)
+        if(self.guess_count <= 6):
+            print(self.answer, " is correct! You win!")
+        else:
+            print(self.answer, " is correct! But, turn is over. You lose!")
+
+        # Record game time
+        game_duration = time.process_time() - start_time
+
+        # Calculate avg guess time
+    
+        if(len(self.guess_durations) == 0):
+            avg_guess_time = 0.0    # Initial word is answer 
+        else:
+            avg_guess_time = sum(self.guess_durations)/len(self.guess_durations)
+    
+        # Get maximum RAM usage
+        #max_ram = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        #max_ram = round(max_ram/1024, 8)  # Convert to megabytes and round
+        
+        # Testing
+        # Interrupt error
+        if not self.is_solved:
+            print("Agent was unable to solve the game.")
+            return None
+        
+        # Check if game was successfuly solved
+        max_guesses = 6
+        successful = self.is_solved and self.guess_count <= max_guesses
+
+        # Create row for DataFrame
+        data_row = {'Answer': guess,
+                    'Guess Count': self.guess_count,
+                    'Success' :  successful,
+                    'Avg Guess Time (ms)': 1000 * avg_guess_time,
+                    'Game Duration (ms)' : 1000 * game_duration}
+                    #'Max RAM (MB)' : max_ram} 
+    
+        return data_row
     

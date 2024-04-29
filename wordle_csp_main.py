@@ -12,16 +12,19 @@ def main():
     for word in words:
         print("Running Wordle: ", count, word)
         count += 1
-        (answer, guess_count, guess_list) = CSPSolver(word).solve(starting_word)
-        print(answer, guess_count, guess_list)
+        datam = CSPSolver(word).test(starting_word)
 
-        if(guess_count <= 6):
-            print(answer, " is correct! You win!")
-        else:
-            print(answer, " is correct! But, turn is over. You lose!")
+        """
+        data_row = {'Answer': guess,
+                    'Guess Count': self.guess_count,
+                    'Success' :  successful,
+                    'Avg Guess Time (ms)': 1000 * avg_guess_time,
+                    'Game Duration (ms)' : 1000 * game_duration}
+                    #'Max RAM (MB)' : max_ram} 
+        """
 
-    #    if(count == 100):
-    #        break
+        if(count == 100):
+            break
 
 if __name__ == '__main__':
     main()

@@ -32,7 +32,8 @@ def main():
     # Types
     # {'brute', 'bfs', 'dfs'}
     agent_type = 'bfs'
-    
+    #agent_type = 'csp'
+
     Tester.run(agent_type, wordle.lexicon, wordle.letter_probs)
     
     

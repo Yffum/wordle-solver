@@ -3,6 +3,8 @@ from GameManager import GameManager
 from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
+from wordle_csp_solver import Dictionary
+from wordle_csp_solver import CSPSolver
 
 import pandas as pd
 import time
@@ -14,7 +16,14 @@ def run(agent_type: str, lexicon: set, letter_probs: list[Counter]):
     # Record test time
     start_time = time.process_time()
     # Using lexicon as test set for now
-    data = test(agent_type, lexicon, lexicon, letter_probs)
+
+    if(agent_type == 'csp'):
+        # run basic CSP test routine
+        data = test_csp(agent_type, lexicon, lexicon)
+    else:
+        # run 'brute', 'bfs', 'dfs' and 'ast'
+        data = test(agent_type, lexicon, lexicon, letter_probs)
+
     # Round duration to minutes
     duration = time.process_time() - start_time
     duration = round(duration/60, 2)
@@ -61,7 +70,41 @@ def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counte
         data.append(datum)
     return data
 
+def test_csp(gaent_type: str, test_set: set, lexicon: set):
+    """ Runs toe csp solver using the given agent, using each word in test_set as the answer
+        (so the number of games tested is equal to the length of test_set) """
+    print("Let solve Wordle!")
+    data = []
 
+    starting_word = "SLATE"
+
+    count = 0
+
+    words = Dictionary().answers
+    for word in words:
+        print("Running Wordle: ", count, word)
+        count += 1
+    #    (answer, guess_count, guess_list) = CSPSolver(word).solve(starting_word)
+    #    print(answer, guess_count, guess_list)
+    #    if(guess_count <= 6):
+    #        print(answer, " is correct! You win!")
+    #    else:
+    #        print(answer, " is correct! But, turn is over. You lose!")
+
+        datum = CSPSolver(word).test(starting_word)
+
+        # Interrupt if no data given
+        if datum is None:
+            print("Error: Data not found. Test stopped")
+            return 
+
+        # Record data
+        data.append(datum)
+
+    #    if(count == 100):
+    #        break
+        
+    return data
 
 def process_data(data: list[dict], agent_type: str, duration: float):
     """ Writes data to file and prints test duration. """
