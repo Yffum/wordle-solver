@@ -4,7 +4,6 @@ from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
-
 class WordleSolver:
     """ This class manages the entire program. """
     def __init__(self):

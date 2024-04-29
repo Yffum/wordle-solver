@@ -73,7 +73,6 @@ def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counte
 def test_csp(gaent_type: str, test_set: set, lexicon: set):
     """ Runs toe csp solver using the given agent, using each word in test_set as the answer
         (so the number of games tested is equal to the length of test_set) """
-    print("Let solve Wordle!")
     data = []
 
     starting_word = "SLATE"
@@ -82,14 +81,9 @@ def test_csp(gaent_type: str, test_set: set, lexicon: set):
 
     words = Dictionary().answers
     for word in words:
-        print("Running Wordle: ", count, word)
+    #    print("Running Wordle", count, ": ", word)
+        print("Running Wordle")
         count += 1
-    #    (answer, guess_count, guess_list) = CSPSolver(word).solve(starting_word)
-    #    print(answer, guess_count, guess_list)
-    #    if(guess_count <= 6):
-    #        print(answer, " is correct! You win!")
-    #    else:
-    #        print(answer, " is correct! But, turn is over. You lose!")
 
         datum = CSPSolver(word).test(starting_word)
 
