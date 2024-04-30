@@ -92,6 +92,11 @@ class TreeSearchAgent(SearchAgent):
                 # If letter was known without position, remove it from the tracker
                 if char in self.known_letters:
                     self.known_letters[char] -= 1
+                    """
+                    # fix for 'no guess issue' known_letters should not be minus value
+                    if self.known_letters[char] < 0:        
+                        self.known_letters[char] = 0
+                    """
                 # Track confirmed letter
                 self.confirmed_letters[i] = char
                 # Set proability to 1
