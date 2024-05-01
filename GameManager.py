@@ -190,14 +190,14 @@ from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
-def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], mode: str=None) -> SearchAgent:
+def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter]) -> SearchAgent:
     """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
-        word scoring is determined by the given letter probability distribution. The mode determines
-        parameters for certain agents, e.g. TreeSearchAgent, which has modes {'BFS', 'DFS', 'ASTAR'}"""
+        word scoring is determined by the given letter probability distribution. """
     if agent_type == 'brute':
         return BruteSearchAgent(lexicon, letter_probs)
-    if agent_type == 'tree':
-        return TreeSearchAgent(lexicon, letter_probs, mode)
+    if agent_type == 'bfs' or 'dfs' or 'astar':
+        # Pass agent type to tree agent to choose bfs/dfs/astar
+        return TreeSearchAgent(lexicon, letter_probs, agent_type)
 
 
 
@@ -210,7 +210,7 @@ def main():
     # Create search agent using probabilities
     #agent = TreeSearchAgent(lexicon, letter_probs)
 
-    agent = create_search_agent('brute', lexicon, letter_probs)
+    agent = create_search_agent('bfs', lexicon, letter_probs)
     
     game = GameManager(lexicon, agent)
     game.start(answer="GESTS", use_AI=True) # Try to guess LASER using the terminal

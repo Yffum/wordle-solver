@@ -1,5 +1,6 @@
 from constants import WORD_LENGTH, ALPHABET
 from SearchAgent import SearchAgent
+from OrderedSet import OrderedSet
 
 from collections import Counter
 import queue
@@ -44,7 +45,7 @@ class TreeSearchAgent(SearchAgent):
         # Domains of possible letters for each character in the guess. Each element
         # corresponds to a char index, and contains the possible letters for that index.
         # Each domain starts with the entire alphabet and is refined after each guess.
-        self.char_domains = [set(ALPHABET) for _ in range(5)]
+        self.char_domains = [OrderedSet(ALPHABET) for _ in range(5)]
         # Tracks whether agent is on the first guess of the game
         self.is_first_guess = True
         
@@ -92,17 +93,15 @@ class TreeSearchAgent(SearchAgent):
                 # If letter was known without position, remove it from the tracker
                 if char in self.known_letters:
                     self.known_letters[char] -= 1
-                    """
-                    # fix for 'no guess issue' known_letters should not be minus value
+                    # Prevent negative values
                     if self.known_letters[char] < 0:        
                         self.known_letters[char] = 0
-                    """
                 # Track confirmed letter
                 self.confirmed_letters[i] = char
                 # Set proability to 1
                 self.letter_probs[i][char] = 1
                 # Restrict domain to this letter
-                self.char_domains[i] = {char}
+                self.char_domains[i] = OrderedSet(char)
             # If letter is known, but in the wrong position, set prob to 0 and track it
             elif rating == '1':
                 self.letter_probs[i][char] = 0
