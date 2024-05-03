@@ -2,7 +2,7 @@ import DataProcessing
 from GameManager import GameManager
 from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
-from TreeSearchAgent import TreeSearchAgent
+from TreeSearchAgent import TreeSearchAgent, Node
 from wordle_csp_solver import Dictionary
 from wordle_csp_solver import CSPSolver
 
@@ -34,16 +34,17 @@ def run(agent_type: str, lexicon: set, letter_probs: list[Counter]):
 
     
 
-def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter]) -> SearchAgent:
+def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], letter_weight: float=0.0) -> SearchAgent:
     """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
         word scoring is determined by the given letter probability distribution. """
     if agent_type == 'brute':
         return BruteSearchAgent(lexicon, letter_probs)
-    if agent_type == 'bfs' or 'dfs' or 'astar':
+    if agent_type == 'bfs' or 'dfs':
         # Pass agent type to tree agent to choose bfs/dfs/astar
         return TreeSearchAgent(lexicon, letter_probs, agent_type)
-
-
+    if agent_type == 'astar':
+        # Pass agent type to tree agent to choose bfs/dfs/astar
+        return TreeSearchAgent(lexicon, letter_probs, agent_type, letter_weight)
 
 def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counter],):
     """ Runs the solver using the given agent, using each word in test_set as the answer
@@ -55,7 +56,9 @@ def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counte
         #     break
 
         # Create new search agent of given type
-        agent = create_search_agent(agent_type, lexicon, letter_probs)
+        weight_node = Node(word)
+        letter_weight = weight_node.get_letter_weight()
+        agent = create_search_agent(agent_type, lexicon, letter_probs, letter_weight)
         # Create new game
         game = GameManager(lexicon, agent)
         # Play game using word as answer

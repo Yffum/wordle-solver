@@ -9,24 +9,38 @@ import copy
 
 class  Node:
     """ Nodes contain a word which might be guessed """
-    def __init__(self, word: str, prev_node: 'Node'=None):
+    def __init__(self, word: str, prev_node: 'Node'=None, priority: float=0.0):
         # The content of a node is this potential guess word
         self.word = word
         self.prev = prev_node
         self.depth = 0
+        self.priority = priority
 
         # Get depth from previous node
         if self.prev != None:
             self.depth = self.prev.depth + 1
 
+    def get_letter_weight(self) -> float:
+        """ToDo: give hint for A-Star heuristic"""
+        
+        """ only for test """
+        char_sum = 0
+        for char in self.word:
+            char_sum += (ord(char) - ord('A'))
+        
+        char_average = char_sum / WORD_LENGTH
 
+        return char_average
+
+    def __lt__(self, other: 'Node'=None):
+        return self.priority < other.priority
 
 class TreeSearchAgent(SearchAgent):
     """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
-    def __init__(self, vocab: set, letter_probability_distribution: list[Counter], mode: str='None'):
+    def __init__(self, vocab: set, letter_probability_distribution: list[Counter], mode: str='None', letter_weight: float=0.0):
         # Words that can be guessed
         self.vocab = set(vocab)
         # List of adjusted letter probabilities
@@ -58,12 +72,13 @@ class TreeSearchAgent(SearchAgent):
         elif mode == 'dfs':
             self.fringe = queue.LifoQueue()
         elif mode == 'astar':
-            # ToDo NOT IMPLEMENTED ######################
             self.fringe = queue.PriorityQueue()
         else:
             raise ValueError(f"Mode '{mode}' not found. Select from {'bfs', 'dfs', 'astar'}")
-    
-    
+
+        self.mode = mode
+        self.answer_letter_weight = letter_weight
+
     # --- Define abstract methods
     # See SearchAgent.py
     def get_guess(self) -> str:
@@ -163,7 +178,15 @@ class TreeSearchAgent(SearchAgent):
         # Return rounded score
         return round(score, 3)
 
+    def get_priority(self, word: str) -> float:
+        """ Returns a word priority value for A-Star search """
+        g_value = self.get_score(word)
 
+        """ ToDo: need to decide proper heuristic """
+        h_value = 0
+
+        return -(g_value + h_value)
+    
     def expand(self, node: Node, prev_words: set) -> list:
         """ Expands the given node, excluding words in prev_words. A list of the
             successor nodes is returned. Successor words are added to prev_words. """
@@ -185,7 +208,11 @@ class TreeSearchAgent(SearchAgent):
                         #print('trying', new_word)
                         prev_words.add(new_word)
                         # Create node with new word and add to successor list
-                        new_node = Node(new_word, node)
+                        if(self.mode == 'astar'):
+                            priority = self.get_priority(new_word)
+                            new_node = Node(new_word, node, priority)
+                        else:
+                            new_node = Node(new_word, node)
                         successors.append(new_node)
         return successors
     
@@ -237,7 +264,11 @@ class TreeSearchAgent(SearchAgent):
         # Clear fringe
         self.clear_fringe()
         # Create and insert root
-        root = Node(self.root_word)
+        if(self.mode == 'astar'):
+            priority = self.get_priority(self.root_word)
+            root = Node(self.root_word, None, priority)
+        else:                
+            root = Node(self.root_word)
         self.fringe.put(root)
 
         # While there are nodes in the fringe
