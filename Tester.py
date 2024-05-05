@@ -50,10 +50,14 @@ def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counte
     """ Runs the solver using the given agent, using each word in test_set as the answer
         (so the number of games tested is equal to the length of test_set) """
     data = []
-    for i, word in enumerate(test_set):
+
+    word_list = list(test_set)
+    word_list = sorted(word_list)
+
+    for i, word in enumerate(word_list):
         # Testing
-        # if i > 100:
-        #     break
+        if i > 3:
+            break
 
         # Create new search agent of given type
         weight_node = Node(word)

@@ -76,9 +76,14 @@ class TreeSearchAgent(SearchAgent):
         else:
             raise ValueError(f"Mode '{mode}' not found. Select from {'bfs', 'dfs', 'astar'}")
 
+        # A Star related variables
         self.mode = mode
         self.answer_letter_weight = letter_weight
-
+        # word distance related variables
+        self.letter_ratings = [ '0' for _ in range(0, 5) ]
+        self.delta_ratings = 0
+        self.delta_words = 0
+        
     # --- Define abstract methods
     # See SearchAgent.py
     def get_guess(self) -> str:
@@ -99,6 +104,8 @@ class TreeSearchAgent(SearchAgent):
         """ Takes a guess and its corresponding ratings, and updates
             letter_probs for each character in the guess. """
         # Track letters that are in the word, but we don't know the position
+        self.letter_ratings = letter_ratings
+
         new_known_letters = Counter()
         # Check every letter in the guess and its corresponding rating
         for i, rating in enumerate(letter_ratings):
@@ -178,14 +185,32 @@ class TreeSearchAgent(SearchAgent):
         # Return rounded score
         return round(score, 3)
 
+
+    def get_delta_ratings(self):
+        self.delta_ratings = 0
+        for a_rating in self.letter_ratings:
+            if a_rating != '2':
+                self.delta_ratings += 2
+
+    def get_delta_words(self, guess_word:str):
+        """ Returns word distance """
+        self.delta_words = 0
+
+        for i, char in enumerate(guess_word):
+            if self.confirmed_letters.get(i, None) != char and char not in self.root_word:
+                self.delta_words += 2
+
     def get_priority(self, word: str) -> float:
         """ Returns a word priority value for A-Star search """
         g_value = self.get_score(word)
 
-        """ ToDo: need to decide proper heuristic """
-        h_value = 0
+        self.get_delta_ratings()
+        self.get_delta_words(word)
 
-        return -(g_value + h_value)
+        """ ToDo: need to decide proper heuristic """
+        h_value = abs(self.delta_ratings - self.delta_words)
+
+        return (-g_value + h_value)
     
     def expand(self, node: Node, prev_words: set) -> list:
         """ Expands the given node, excluding words in prev_words. A list of the
