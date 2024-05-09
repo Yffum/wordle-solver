@@ -48,6 +48,8 @@ class TreeSearchAgent(SearchAgent):
         self.char_domains = [OrderedSet(ALPHABET) for _ in range(5)]
         # Tracks how many guesses the agent has already made
         self.guess_count = 0
+        # Sequence of guesses to start with
+        self.start_guesses = ['AUDIO', 'NERTS', 'LYMPH']
         
         # The fringe of nodes that have been expanded but not checked. The type of 
         # this container is determined by the chosen mode 
@@ -69,12 +71,19 @@ class TreeSearchAgent(SearchAgent):
     def get_guess(self) -> str:
         # Increment guess count
         self.guess_count += 1
-        # Special cases:
-        if self.guess_count == 1: # first guess
-            return self.root_word
+        guess = None
+        # Use start_guesses first
+        if self.guess_count <= len(self.start_guesses):
+            guess = self.start_guesses[self.guess_count - 1]
         # Tree search
         else:
-            return self.tree_search_with_threshold()
+            guess = self.tree_search_with_threshold()
+        # Adjust root node for next search
+        self.root_word = guess
+        # Remove guess from vocab
+        self.vocab.discard(guess)
+        # Return guess for the game
+        return guess
 
     # See SearchAgent.py
     def process_feedback(self, guess: str, letter_ratings: list[int]):
@@ -150,6 +159,25 @@ class TreeSearchAgent(SearchAgent):
         # Make sure word is a legal
         if word not in self.vocab:
             return 0
+        
+        # Make sure confirmed letters are accounted for by removing each letter
+        # from a list of chars in the word
+        chars = list(word)
+        for position, letter in self.confirmed_letters.items():
+            if letter in chars:
+                chars.remove(letter)
+            else:
+                # Not all confirmed letters are in the word
+                return 0
+        # Repeat with known letters
+        for letter, count in self.known_letters.items():
+            # Repeat for count of each letter
+            for i in range(count):
+                if letter in chars:
+                    chars.remove(letter)
+                else:
+                    # Not all known letters are in the word
+                    return 0            
 
         # For each character
         for i, char in enumerate(word):
@@ -159,9 +187,10 @@ class TreeSearchAgent(SearchAgent):
             if prob == 0:
                 return 0
             
+            # ToDo: test with/without increasing factor
             # Increase probability if letter is known
-            factor = 1/WORD_LENGTH # chance to be in that position
-            prob += factor * self.known_letters[char]
+            #factor = 1/WORD_LENGTH # chance to be in that position
+            #prob += factor * self.known_letters[char]
             # Example: If we know a 5-letter word has 2 'a', then we increase the
             #          probability of 'a' in this position by 0.2 * 2 = 0.4
 
@@ -243,9 +272,15 @@ class TreeSearchAgent(SearchAgent):
 
         # Clear fringe
         self.clear_fringe()
-        # Create and insert root
-        root = Node(self.root_word)
-        self.fringe.put(root)
+        # Create root
+        root = self.root_word
+        # Insert confirmed letters into root word
+        for i in self.confirmed_letters:
+            # Replace letter at index i
+            root = root[:i] + self.confirmed_letters[i] + root[i+1:]
+        # Insert root into fringe
+        root_node = Node(root)
+        self.fringe.put(root_node)
 
         # While there are nodes in the fringe
         while not self.fringe.empty():
@@ -253,10 +288,6 @@ class TreeSearchAgent(SearchAgent):
             node = self.fringe.get()
             # If the node's score is above the threshold
             if self.get_score(node.word) > self.score_threshold:
-                # Adjust root node for next search
-                self.root_word = node.word
-                # Remove guess from vocab
-                self.vocab.discard(node.word)
                 # Guess word
                 return node.word
             # Else expand node

@@ -5,6 +5,7 @@ from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 from wordle_csp_solver import Dictionary
 from wordle_csp_solver import CSPSolver
+from DataManager import DataManager
 
 import pandas as pd
 import time
@@ -12,7 +13,7 @@ from datetime import datetime
 from collections import Counter
 
 
-def run(agent_type: str, test_words: list, lexicon: set, letter_probs: list[Counter]):
+def run(agent_type: str, test_words: list, data_manager:DataManager):
     """ Run test() and record/report duration"""
     # Record test time
     start_time = time.process_time()
@@ -20,10 +21,10 @@ def run(agent_type: str, test_words: list, lexicon: set, letter_probs: list[Coun
 
     if(agent_type == 'csp'):
         # run basic CSP test routine
-        data = test_csp(agent_type, test_words, lexicon)
+        data = test_csp(agent_type, test_words, data_manager.guess_words)
     else:
         # run 'brute', 'bfs', 'dfs' and 'ast'
-        data = test(agent_type, test_words, lexicon, letter_probs)
+        data = test(agent_type, test_words, data_manager)
 
     # Round duration to minutes
     duration = time.process_time() - start_time
@@ -46,19 +47,15 @@ def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counte
 
 
 
-def test(agent_type: str, test_words: list, lexicon: set, letter_probs: list[Counter],):
+def test(agent_type: str, test_words: list, data_manager: DataManager):
     """ Runs the solver using the given agent, using each word in test_set as the answer
         (so the number of games tested is equal to the length of test_set) """
     data = []
     for i, word in enumerate(test_words):
-        # Testing
-        # if i > 100:
-        #     break
-
         # Create new search agent of given type
-        agent = create_search_agent(agent_type, lexicon, letter_probs)
+        agent = create_search_agent(agent_type, data_manager.answer_words, data_manager.letter_probs)
         # Create new game
-        game = GameManager(lexicon, agent)
+        game = GameManager(data_manager.guess_words, agent)
         # Play game using word as answer
         datum = game.test(answer=word)
         

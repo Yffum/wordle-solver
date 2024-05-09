@@ -1,0 +1,34 @@
+Date: 2024-05-09
+Search Mode: bfs
+Test Size: 10
+Test Duration (min): 1.02
+Win Percentage (%): 70.0
+Avg Guess Count: 6.2
+Total Avg Guess Time (ms): 1038.57
+Avg Game Duration (ms): 6115.62
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+BRUNT,5,True,1425.0,7125.0
+ELECT,5,True,1143.75,5718.75
+JOUST,5,True,1350.0,6750.0
+AROMA,6,True,67.71,406.25
+THIRD,6,True,2161.46,12968.75
+FOYER,6,True,1250.0,7500.0
+PRAWN,6,True,1557.29,9343.75
+QUASI,7,False,100.45,703.12
+RIVER,8,False,683.59,5468.75
+ROWER,8,False,646.48,5171.88
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+RIVER,8,False,683.59,5468.75
+ROWER,8,False,646.48,5171.88
+QUASI,7,False,100.45,703.12
+AROMA,6,True,67.71,406.25
+THIRD,6,True,2161.46,12968.75
+FOYER,6,True,1250.0,7500.0
+PRAWN,6,True,1557.29,9343.75
+BRUNT,5,True,1425.0,7125.0
+ELECT,5,True,1143.75,5718.75
+JOUST,5,True,1350.0,6750.0

@@ -1,0 +1,34 @@
+Date: 2024-05-09
+Search Mode: bfs
+Test Size: 10
+Test Duration (min): 0.66
+Win Percentage (%): 90.0
+Avg Guess Count: 5.7
+Total Avg Guess Time (ms): 657.32
+Avg Game Duration (ms): 3937.5
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+LOGIC,4,True,7.81,31.25
+SCRUM,5,True,128.12,640.62
+CURRY,5,True,3.12,15.62
+MAJOR,6,True,1093.75,6562.5
+DRAWN,6,True,1692.71,10156.25
+COLOR,6,True,1229.17,7375.0
+CLOSE,6,True,1257.81,7546.88
+KNACK,6,True,984.38,5906.25
+ARTSY,6,True,93.75,562.5
+QUART,7,False,82.59,578.12
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+QUART,7,False,82.59,578.12
+MAJOR,6,True,1093.75,6562.5
+DRAWN,6,True,1692.71,10156.25
+COLOR,6,True,1229.17,7375.0
+CLOSE,6,True,1257.81,7546.88
+KNACK,6,True,984.38,5906.25
+ARTSY,6,True,93.75,562.5
+SCRUM,5,True,128.12,640.62
+CURRY,5,True,3.12,15.62
+LOGIC,4,True,7.81,31.25
