@@ -4,23 +4,35 @@ from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
 
-class WordleSolver:
-    """ This class manages the entire program. """
-    def __init__(self):
-        self.lexicon = set()
-        self.letter_probs = []
-        self.update_lexicon()
-        
-        
-    def update_lexicon(self):
-        """ Updates the currently used lexicon, and the letter probability distribution """
-        self.lexicon = DataProcessing.import_lexicon()
-        self.letter_probs = DataProcessing.calculate_letter_probability_distribution(self.lexicon)
+import random
 
+""" This file runs the program"""
+
+
+class DataManager:
+    """ This class manages data that is initialized when starting the program 
+        and then used every game. """
+    def __init__(self):
+        self.guess_words = set()
+        self.answer_words = set()
+        self.letter_probs = []
+        self.set_data()
+        
+    def set_data(self):
+        """ Sets internal word sets from file and calculates letter probabilities """
+        self.guess_words = DataProcessing.import_lexicon('Data/wordle_lexicon.txt')
+        self.answer_words = DataProcessing.import_lexicon('Data/valid_solutions.csv')
+        
+        self.letter_probs = DataProcessing.calculate_letter_probability_distribution(self.guess_words)
+        
+    def get_random_answers(self, length: int) -> list:
+        """ Returns a list of the given length with random answer words. """
+        return random.sample(list(self.answer_words), length)
+        
 
 
 def main():
-    wordle = WordleSolver()
+    data = DataManager()
     
     # ToDo: SET THE SEARCH AGENT HERE
     
@@ -33,7 +45,8 @@ def main():
     agent_type = 'bfs'
     #agent_type = 'csp'
 
-    Tester.run(agent_type, wordle.lexicon, wordle.letter_probs)
+    test_words = data.get_random_answers(10)
+    Tester.run(agent_type, test_words, data.guess_words, data.letter_probs)
     
     
 

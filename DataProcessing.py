@@ -17,7 +17,7 @@ def import_lexicon(filepath: str='Data/wordle_lexicon.txt') -> set:
             if len(word) == WORD_LENGTH:
                 # Add the word to the lexicon
                 lexicon.add(word)
-            else:
+            elif not word == '':
                 print("Warning:", word, "is not a valid word, and was skipped.")
     return lexicon
 
@@ -50,3 +50,28 @@ def calculate_letter_probability_distribution(lexicon: set) -> list[Counter]:
     # Return probabilities
     return letter_counts
 
+
+
+def get_general_letter_probabilities(words: list[str]) -> Counter:
+    """ Returns a Counter containing the normalized frequency of each character
+        in the given list of strings (i.e., the number of occurences of each
+        character divided by the total number of characters)
+        character in the given list of words """ 
+    char_counts = Counter()
+    total = 0
+    # Parse each letter in each word
+    for word in words:
+        for char in word:
+            # Count letter
+            char_counts[char] += 1 
+            total += 1
+            
+    # Normalize each count by total number of characters
+    for char in char_counts: 
+        # Number of decimal digits
+        precision = 4
+        # Divide count by lexicon length and round
+        char_counts[char] = round(char_counts[char] / total, precision)
+        
+    # char_counts now contains the counts divided by the total number of characters
+    return char_counts

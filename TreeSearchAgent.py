@@ -38,16 +38,16 @@ class TreeSearchAgent(SearchAgent):
         self.confirmed_letters = dict()
         # These letters are known to be in the word, but we don't know the position
         self.known_letters = Counter()
-        # Starting word for tree search, copied from brute force search's first guess
-        self.root_word = 'SORES'
+        # Starting word for tree search
+        self.root_word = 'AUDIO'
         # Agent guesses the first word found with a score above this threshold
         self.score_threshold = 0
         # Domains of possible letters for each character in the guess. Each element
         # corresponds to a char index, and contains the possible letters for that index.
         # Each domain starts with the entire alphabet and is refined after each guess.
         self.char_domains = [OrderedSet(ALPHABET) for _ in range(5)]
-        # Tracks whether agent is on the first guess of the game
-        self.is_first_guess = True
+        # Tracks how many guesses the agent has already made
+        self.guess_count = 0
         
         # The fringe of nodes that have been expanded but not checked. The type of 
         # this container is determined by the chosen mode 
@@ -67,7 +67,14 @@ class TreeSearchAgent(SearchAgent):
     # --- Define abstract methods
     # See SearchAgent.py
     def get_guess(self) -> str:
-        return self.tree_search_with_threshold()
+        # Increment guess count
+        self.guess_count += 1
+        # Special cases:
+        if self.guess_count == 1: # first guess
+            return self.root_word
+        # Tree search
+        else:
+            return self.tree_search_with_threshold()
 
     # See SearchAgent.py
     def process_feedback(self, guess: str, letter_ratings: list[int]):
@@ -219,7 +226,7 @@ class TreeSearchAgent(SearchAgent):
             function that increases with respect to the number of letter that have
             been confirmed so far"""
         # -- Constants --
-        base_threshold = 0.7
+        base_threshold = 0.5
         increase_factor = 0.3
         
         # Calculate threshold using linear function on confirmed letter count
@@ -267,19 +274,19 @@ class TreeSearchAgent(SearchAgent):
             a word is found, or the threshold can't be lowered. Returns the found word,
             or None if no word is found. """
         # The threshold decreases by this amount when the search fails
-        threshold_decrement = 0.2
+        threshold_decrement = 0.3
         
-        # Calculate word score threshold based on number of confirmed letters
-        self.score_threshold = self.get_threshold_alt()
+        # Starting threshold
+        self.score_threshold = 0.1
         
-        # Lower threshold if no letter was confirmed from first guess
-        if not self.is_first_guess and len(self.confirmed_letters) == 0:
-            self.score_threshold -= threshold_decrement
-        self.is_first_guess = False
+        # If any letters have been confirmed
+        if len(self.confirmed_letters) > 0:
+            # Calculate new threshold based on number of confirmed letters
+            self.score_threshold = self.get_threshold_alt()
         
         # Repeat tree search while lowering threshold
         threshold_can_decrease = True
-        while threshold_can_decrease:
+        while threshold_can_decrease: 
             guess = self.tree_search()
             # Search succeeded, return guess
             if guess is not None:

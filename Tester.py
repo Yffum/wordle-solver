@@ -12,17 +12,18 @@ from datetime import datetime
 from collections import Counter
 
 
-def run(agent_type: str, lexicon: set, letter_probs: list[Counter]):
+def run(agent_type: str, test_words: list, lexicon: set, letter_probs: list[Counter]):
+    """ Run test() and record/report duration"""
     # Record test time
     start_time = time.process_time()
     # Using lexicon as test set for now
 
     if(agent_type == 'csp'):
         # run basic CSP test routine
-        data = test_csp(agent_type, lexicon, lexicon)
+        data = test_csp(agent_type, test_words, lexicon)
     else:
         # run 'brute', 'bfs', 'dfs' and 'ast'
-        data = test(agent_type, lexicon, lexicon, letter_probs)
+        data = test(agent_type, test_words, lexicon, letter_probs)
 
     # Round duration to minutes
     duration = time.process_time() - start_time
@@ -35,7 +36,7 @@ def run(agent_type: str, lexicon: set, letter_probs: list[Counter]):
     
 
 def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter]) -> SearchAgent:
-    """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
+    """ Creates a search agent of the given type. Vocabulary is built from given lexicon, and 
         word scoring is determined by the given letter probability distribution. """
     if agent_type == 'brute':
         return BruteSearchAgent(lexicon, letter_probs)
@@ -45,11 +46,11 @@ def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counte
 
 
 
-def test(agent_type: str, test_set: set, lexicon: set, letter_probs: list[Counter],):
+def test(agent_type: str, test_words: list, lexicon: set, letter_probs: list[Counter],):
     """ Runs the solver using the given agent, using each word in test_set as the answer
         (so the number of games tested is equal to the length of test_set) """
     data = []
-    for i, word in enumerate(test_set):
+    for i, word in enumerate(test_words):
         # Testing
         # if i > 100:
         #     break

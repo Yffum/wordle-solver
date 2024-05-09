@@ -1,0 +1,34 @@
+Date: 2024-05-09
+Search Mode: bfs
+Test Size: 10
+Test Duration (min): 8.72
+Win Percentage (%): 70.0
+Avg Guess Count: 5.9
+Total Avg Guess Time (ms): 8454.77
+Avg Game Duration (ms): 52296.88
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ABOVE,5,True,575.0,2875.0
+TRACT,5,True,11300.0,56500.0
+THROW,5,True,9581.25,47906.25
+VENOM,5,True,11250.0,56250.0
+AORTA,5,True,409.38,2046.88
+GOODY,6,True,9671.88,58031.25
+PRONG,6,True,8091.15,48546.88
+WOOZY,7,False,7053.57,49375.0
+WRECK,7,False,11486.61,80406.25
+VOGUE,8,False,15128.91,121031.25
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+VOGUE,8,False,15128.91,121031.25
+WOOZY,7,False,7053.57,49375.0
+WRECK,7,False,11486.61,80406.25
+GOODY,6,True,9671.88,58031.25
+PRONG,6,True,8091.15,48546.88
+ABOVE,5,True,575.0,2875.0
+TRACT,5,True,11300.0,56500.0
+THROW,5,True,9581.25,47906.25
+VENOM,5,True,11250.0,56250.0
+AORTA,5,True,409.38,2046.88

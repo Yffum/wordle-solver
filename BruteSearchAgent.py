@@ -117,7 +117,7 @@ class BruteSearchAgent(SearchAgent):
         best_score, best_word = rated_words.get()
 
         # TESTING
-        print("Best Score:", best_score, "Best Guess:", best_word)
+        print("Best Score:", -best_score)
 
         # while not rated_words.empty():
         #      score, word = rated_words.get()
