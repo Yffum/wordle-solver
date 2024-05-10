@@ -11,7 +11,7 @@ import sys
 def test_wordle(data: DataManager, agent_type: str, test_length: int):
     """ Runs series of tests using given search type
     Args:
-        agent_type (str): The type of search: ('brute', 'csp, 'bfs', 'dfs', 'greedy', 'astar')
+        agent_type (str): The type of search: ('brute', 'csp', 'bfs', 'dfs', 'greedy', 'astar')
         test_length (int): The number of games to run tests on
     """
     test_words = data.get_random_answers(test_length)

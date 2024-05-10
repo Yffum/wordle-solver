@@ -1,5 +1,5 @@
 import DataProcessing
-from constants import MAX_GUESS_COUNT, WORD_LENGTH
+from constants import MAX_GUESS_LIMIT, MAX_GUESS_COUNT, WORD_LENGTH
 
 from collections import Counter
 #import resource
@@ -55,7 +55,7 @@ class GameManager:
 
     def validate(self, guess: str) -> bool:
         """ Returns true if the guess is a valid word in the dictionary """  
-        if len(guess) != 5:
+        if len(guess) != WORD_LENGTH:
             print("The length of the guess must be five letters.")
             return False
         if guess not in self.legal_words:
@@ -103,7 +103,7 @@ class GameManager:
         return letter_ratings
 
 
-    def start(self, answer: str, use_AI: bool=True) -> bool:
+    def start(self, answer: str, use_AI: bool=True, guess_limit: int=MAX_GUESS_LIMIT) -> bool:
         """ Run a game of Wordle using the given answer. Returns true if game is won.
             If use_AI is False, then the user will be prompted for guesses """
 
@@ -114,7 +114,7 @@ class GameManager:
         self.answer = answer
         
         # Run game loop until out of guesses
-        while self.guess_count < MAX_GUESS_COUNT:
+        while self.guess_count < guess_limit:
             # Get guess
             guess = self.get_guess(self.agent)
             # If guess is none, agent couldn't find a guess
@@ -145,7 +145,7 @@ class GameManager:
                 return True
 
         # Reached maximum number of guesses
-        print("Failure. Number of guesses exceeded", MAX_GUESS_COUNT)
+        print("Failure. Maximum number of guesses (", guess_limit, ") was reached.")
         print("The answer was", answer)
         return False
     
@@ -172,8 +172,7 @@ class GameManager:
             return None
         
         # Check if game was successfuly solved
-        max_guesses = 6
-        successful = is_solved and self.guess_count <= max_guesses
+        successful = is_solved and self.guess_count <= MAX_GUESS_COUNT
 
         # Create row for DataFrame
         data_row = {'Answer': answer,

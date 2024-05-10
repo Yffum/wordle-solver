@@ -2,8 +2,7 @@
 import functools
 import time
 
-
-WORD_LENGTH = 5
+from constants import MAX_GUESS_COUNT
 
 class LetterInfo:
     def __init__(self, letter, position):
@@ -227,7 +226,7 @@ class CSPSolver:
         self.answer = self.guess_list[-1]
 
         print(self.answer, self.guess_count, self.guess_list)
-        if(self.guess_count <= 6):
+        if(self.guess_count <= MAX_GUESS_COUNT):
             print(self.answer, " is correct! You win!")
         else:
             print(self.answer, " is correct! But, turn is over. You lose!")
@@ -253,8 +252,7 @@ class CSPSolver:
             return None
         
         # Check if game was successfuly solved
-        max_guesses = 6
-        successful = self.is_solved and self.guess_count <= max_guesses
+        successful = self.is_solved and self.guess_count <= MAX_GUESS_COUNT
 
         # Create row for DataFrame
         data_row = {'Answer': guess,
