@@ -25,7 +25,6 @@ def print_how_to():
     print("    <test_length> - The number of games to solve (1 to 1000)")
 
 
-
 def main():
     # Get system arguments
     args = sys.argv

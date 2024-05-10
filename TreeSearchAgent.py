@@ -1,4 +1,4 @@
-from constants import WORD_LENGTH, ALPHABET, H_SCALE, BASE_THRESHOLD, THRESHOLD_INCREASE_FACTOR, THRESHOLD_DECREMENT
+from constants import WORD_LENGTH, ALPHABET, H_SCALE, BASE_THRESHOLD, THRESHOLD_INCREASE_FACTOR, THRESHOLD_DECREMENT, PRECISION
 from SearchAgent import SearchAgent
 from OrderedSet import OrderedSet
 
@@ -198,7 +198,7 @@ class TreeSearchAgent(SearchAgent):
             # Add probability of character to score
             score += prob
         # Return rounded score
-        return round(score, 3)
+        return round(score, PRECISION)
 
 
     def expand(self, node: Node, prev_words: set) -> list:

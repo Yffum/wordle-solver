@@ -1,6 +1,6 @@
 from collections import Counter
 
-from constants import WORD_LENGTH
+from constants import WORD_LENGTH, PRECISION
 
 
 
@@ -42,10 +42,8 @@ def calculate_letter_probability_distribution(lexicon: set) -> list[Counter]:
     for table in letter_counts:
         # Calculate probability of each letter at position i
         for char in table: 
-            # Number of decimal digits
-            precision = 5
             # Divide count by lexicon length and round
-            table[char] = round(table[char] / len(lexicon), precision)
+            table[char] = round(table[char] / len(lexicon), PRECISION)
 
     # Return probabilities
     return letter_counts
@@ -68,10 +66,8 @@ def get_general_letter_probabilities(words: list[str]) -> Counter:
             
     # Normalize each count by total number of characters
     for char in char_counts: 
-        # Number of decimal digits
-        precision = 4
         # Divide count by lexicon length and round
-        char_counts[char] = round(char_counts[char] / total, precision)
+        char_counts[char] = round(char_counts[char] / total, PRECISION)
         
     # char_counts now contains the counts divided by the total number of characters
     return char_counts

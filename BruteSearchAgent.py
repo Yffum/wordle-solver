@@ -1,4 +1,4 @@
-from constants import WORD_LENGTH
+from constants import WORD_LENGTH, PRECISION
 from SearchAgent import SearchAgent
 
 from collections import Counter
@@ -97,7 +97,7 @@ class BruteSearchAgent(SearchAgent):
             # Add probability of character to score
             score += prob
         # Return rounded score
-        return round(score, 3)
+        return round(score, PRECISION)
 
 
     def brute_force_search(self):
