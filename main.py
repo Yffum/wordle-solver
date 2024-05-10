@@ -1,47 +1,55 @@
 import Tester
-from SearchAgent import SearchAgent
-from BruteSearchAgent import BruteSearchAgent
-from TreeSearchAgent import TreeSearchAgent
-from StartWordFinder import StartWordFinder
-
+from GameManager import GameManager
 from DataManager import DataManager
+from constants import AGENT_TYPES
 
-""" This file runs the program"""
+import sys
 
+""" This file runs the Wordle Solver """
+
+
+def test_wordle(data: DataManager, agent_type: str, test_length: int):
+    """ Runs series of tests using given search type
+    Args:
+        agent_type (str): The type of search: ('brute', 'csp, 'bfs', 'dfs', 'greedy', 'astar')
+        test_length (int): The number of games to run tests on
+    """
+    test_words = data.get_random_answers(test_length)
+    Tester.run(agent_type, test_words, data)
+    
+    
+def print_how_to():
+    print("Run the program with two arguments like so:")
+    print("$python main.py <agent_type> <test_length>")
+    print("    <agent_type>  - The search agent type (brute, csp, bfs, dfs, greedy, astar)")
+    print("    <test_length> - The number of games to solve (1 to 1000)")
 
 
 
 def main():
-    data = DataManager()
-    
-    print(data.start_words)
-    
-    # ToDo: SET THE SEARCH AGENT HERE
-    
-    # To add new agent type, have the agent's class inherit SearchAgent and implement the
-    # abstract methods. Then add a condition for the new agent type to create_search_agent() 
-    # in Tester.pys
-    
-    # Types
-    # {'brute', 'bfs', 'dfs'}
-    agent_type = 'astar'
-    #agent_type = 'csp'
+    # Get system arguments
+    args = sys.argv
 
-    test_words = data.get_random_answers(100)
-    Tester.run(agent_type, test_words, data)
+    # Check number of arguments
+    if len(args) != 3:
+        print_how_to()
+        return
     
+    # Check arguments
+    agent_type = args[1]
+    test_length =  int(args[2])
+    
+    if (agent_type not in AGENT_TYPES
+        or test_length < 1
+        or test_length > 1000):
+        print_how_to()
+        return
+    
+    # Run tests
+    data = DataManager()
+    test_wordle(data, agent_type, test_length)
     
 
 if __name__ == '__main__':
     main()
     
-    
-    
-    # Not in use yet
-        # # A list of commands and their descriptions
-        # self.commands = [('play', 'Play Wordle without using the solver.'),
-        #                  ('solve', 'Use the Wordle solver.')]
-
-        # self.solve_commands = [('brute', 'Searches every word in the lexcion.'),
-        #                        ('BFS', 'Searches using a breadth-first search'),
-        #                        ('DFS', 'Searches using a depth-first search')]

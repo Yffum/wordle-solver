@@ -79,8 +79,7 @@ def test_csp(gaent_type: str, test_set: set, lexicon: set):
 
     count = 0
 
-    words = Dictionary().answers
-    for word in words:
+    for word in test_set:
     #    print("Running Wordle", count, ": ", word)
         print("Running Wordle")
         count += 1
