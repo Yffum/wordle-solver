@@ -1,0 +1,34 @@
+Date: 2024-05-10
+Search Mode: astar
+Test Size: 100
+Test Duration (min): 3.07
+Win Percentage (%): 100.0
+Avg Guess Count: 4.31
+Total Avg Guess Time (ms): 428.28
+Avg Game Duration (ms): 1840.0
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+MUCKY,4,True,253.91,1015.62
+GECKO,4,True,0.0,0.0
+BASIS,4,True,3.91,15.62
+LOCAL,4,True,66.41,265.62
+CARAT,4,True,23.44,93.75
+SPIED,4,True,2042.97,8171.88
+ELUDE,4,True,1019.53,4078.12
+ANNUL,4,True,50.78,203.12
+THRUM,4,True,31.25,125.0
+DRESS,4,True,31.25,125.0
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+KITTY,6,True,13.02,78.12
+GLARE,6,True,677.08,4062.5
+RIPER,6,True,539.06,3234.38
+CHEEK,5,True,856.25,4281.25
+EXTOL,5,True,512.5,2562.5
+ALOFT,5,True,15.62,78.12
+HUNCH,5,True,0.0,0.0
+TIBIA,5,True,53.12,265.62
+TROVE,5,True,412.5,2062.5
+SMILE,5,True,596.88,2984.38

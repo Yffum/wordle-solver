@@ -24,7 +24,7 @@ def main():
     
     # Types
     # {'brute', 'bfs', 'dfs'}
-    agent_type = 'greedy'
+    agent_type = 'astar'
     #agent_type = 'csp'
 
     test_words = data.get_random_answers(100)

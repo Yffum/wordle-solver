@@ -25,7 +25,7 @@ class  Node:
 
 
 class TreeSearchAgent(SearchAgent):
-    """ A BruteSearchAgent must be instantiated with a vocabulary of words it can guess, 
+    """ A TreeSearchAgent must be instantiated with a vocabulary of words it can guess, 
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
@@ -54,10 +54,11 @@ class TreeSearchAgent(SearchAgent):
         # Sequence of guesses to start with
         self.start_guesses = ['AUDIO', 'NERTS', 'LYMPH']
         
-        # Default to simple tree search
+        # Default to simple tree search. The tree_search function returns the first word
+        # it finds under score_threshold
         self.tree_search = self.simple_tree_search
         if mode == None:
-            mode = 'bfs' # Default to BFS
+            mode = 'bfs' # Default to BFS mode
             
         # Set the fringe and the tree search function based on the given mode
         if mode == 'bfs':     
@@ -68,10 +69,10 @@ class TreeSearchAgent(SearchAgent):
             self.fringe = queue.PriorityQueue()
             self.tree_search = self.greedy_tree_search
         elif mode == 'astar':
-            # ToDo NOT IMPLEMENTED ######################
             self.fringe = queue.PriorityQueue()
+            self.tree_search = self.astar_tree_search
         else:
-            raise ValueError(f"Mode '{mode}' not found. Select from {'bfs', 'dfs', 'astar'}")
+            raise ValueError(f"Mode '{mode}' not found. Select from {'bfs', 'dfs', 'greedy', 'astar'}")
     
     
     # --- Define abstract methods
@@ -307,10 +308,12 @@ class TreeSearchAgent(SearchAgent):
         print("No word found with score above threshold =", self.score_threshold)
         return None
     
+    
     def greedy_tree_search(self) -> str:
         """ Performs a tree search using a priority queue and returns the first word 
             it finds with a score above self.score_threshold. Returns None if no word 
-            is found above the threshold. """
+            is found above the threshold. The priority queue return the word with the
+            highest score. """
         # Track words already parsed
         prev_words = set()
 
@@ -346,7 +349,62 @@ class TreeSearchAgent(SearchAgent):
         # No word was found outside the threshold
         print("No word found with score above threshold =", self.score_threshold)
         return None
+    
+    
+    def astar_tree_search(self) -> str:
+        """ Performs a tree search using a priority queue and returns the first word 
+            it finds with a score above self.score_threshold. Returns None if no word 
+            is found above the threshold. """
+        # Track words already parsed
+        prev_words = set()
         
+        def get_priority(node: Node, word_score: float) -> float:
+            # This constant scales the difference between a current word's score and
+            # the current score threshold in astar, in order to estimate the number
+            # of nodes until a word above the threshold is reached
+            H_SCALE = 1000
+            heuristic = H_SCALE * (self.score_threshold - word_score)
+            # Priority is depth + heuristic
+            priority = node.depth + heuristic
+            return priority
+
+        # Clear fringe
+        self.clear_fringe()
+        # Create root
+        root = self.root_word
+        # Insert confirmed letters into root word
+        for i in self.confirmed_letters:
+            # Replace letter at index i
+            root = root[:i] + self.confirmed_letters[i] + root[i+1:]
+        # Insert root into fringe
+        root_node = Node(root)
+        # Use score of 0 for root node
+        self.fringe.put((0, 0, root_node))
+        
+        # Note: the fringe stores (priority, score, node) so that score doesn't have
+        # to be calculated again when checking if the node is in the threshold after
+        # removing it from the fringe
+
+        # While there are nodes in the fringe
+        while not self.fringe.empty():
+            # Get node from fringe
+            _, score, node = self.fringe.get()
+            # If the node's score is above the threshold (priority queue holds negative score)
+            if score > self.score_threshold:
+                # Guess word
+                return node.word
+            # Else expand node
+            successors = self.expand(node, prev_words)
+            # Add successors to fringe
+            for succ_node in successors:
+                # Get word's score and calculate priority using heuristic
+                score = self.get_score(succ_node.word)
+                priority = get_priority(succ_node, score)
+                # Push to fringe
+                self.fringe.put((priority, score, succ_node))
+        # No word was found outside the threshold
+        print("No word found with score above threshold =", self.score_threshold)
+        return None
         
     def tree_search_with_threshold(self) -> str:
         """ Repeatedly performs self.tree_search() while lowering the threshold until
@@ -355,13 +413,13 @@ class TreeSearchAgent(SearchAgent):
         # The threshold decreases by this amount when the search fails
         threshold_decrement = 0.3
         
-        # Starting threshold
-        self.score_threshold = 0.1
-        
         # If any letters have been confirmed
         if len(self.confirmed_letters) > 0:
             # Calculate new threshold based on number of confirmed letters
             self.score_threshold = self.get_threshold_alt()
+        else:
+            # Starting threshold
+            self.score_threshold = 0.1
         
         # Repeat tree search while lowering threshold
         threshold_can_decrease = True
