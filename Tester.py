@@ -41,9 +41,11 @@ def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counte
         word scoring is determined by the given letter probability distribution. """
     if agent_type == 'brute':
         return BruteSearchAgent(lexicon, letter_probs)
-    if agent_type == 'bfs' or 'dfs' or 'astar':
+    if agent_type in ('bfs', 'dfs', 'greedy', 'astar'):
         # Pass agent type to tree agent to choose bfs/dfs/astar
         return TreeSearchAgent(lexicon, letter_probs, agent_type)
+    # If agent_type isn't handled
+    print("Error: agent_type", agent_type, "was not found.")
 
 
 
