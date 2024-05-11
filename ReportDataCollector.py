@@ -1,0 +1,96 @@
+from typing import List
+import pandas as pd
+from datetime import datetime
+import matplotlib.pyplot as plt
+
+class ReportDataCollector:
+    def __init__(self):
+        self.RunTimeData = []
+
+    def recordData(self, record):
+        [ answer, guess_count, successful, avg_guess_time, game_duration ] = record
+
+        self.RunTimeData.append(
+            {
+                'Answer': answer,
+                'Guess Count': guess_count,
+                'Success' :  successful,
+                'Avg Guess Time (ms)': 1000 * avg_guess_time,
+                'Game Duration (ms)' : 1000 * game_duration
+            }
+        )
+
+    def generateReportFile(self, agent_type: str, duration: float):
+        self.report_df = pd.DataFrame.from_records(self.RunTimeData)
+        self.agent_type = agent_type
+        self.duration = duration
+
+        # Count successes 
+        success_count = self.report_df['Success'].value_counts().get(True, 0)
+    
+        # Precision
+        p = 2 # num of digits after decimal
+
+        # Calculate stats
+        win_percentage = round(100 * success_count/len(self.report_df), p)
+        avg_guess_count = round(self.report_df['Guess Count'].mean(), p)
+        total_avg_guess_time = round(self.report_df['Avg Guess Time (ms)'].mean(), p)
+        avg_game_duration = round(self.report_df['Game Duration (ms)'].mean(), p)
+    
+        # Round stats
+        self.report_df = self.report_df.round(p)
+
+        current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        filename = f"test_results/wordle_test_{current_datetime}.txt"
+    
+        with open(filename, 'w') as f:
+            f.write("")
+
+        # Write overall statistics
+        with open(filename, 'w') as f:
+            f.write("Date: {}\n".format(datetime.now().strftime("%Y-%m-%d")))
+            f.write("Search Mode: {}\n".format(agent_type))
+            f.write("Test Size: {}\n".format(len(self.report_df)))
+            f.write("Test Duration (min): {}\n".format(duration))
+            f.write("Win Percentage (%): {}\n".format(win_percentage))
+            f.write("Avg Guess Count: {}\n".format(avg_guess_count))
+            f.write("Total Avg Guess Time (ms): {}\n".format(total_avg_guess_time))
+            f.write("Avg Game Duration (ms): {}\n".format(avg_game_duration))
+
+        # Sort by easiest games (fewest guesses)
+        self.report_df.sort_values(by='Guess Count', ascending=True, inplace=True)
+        # Write to file
+        with open(filename, 'a') as f:
+            f.write("\n")
+            f.write("Top 10 Easiest Games (fewest guesses):\n")
+        self.report_df.head(10).to_csv(filename, mode='a', index=False)
+
+        # Sort by hardest games (most guesses)
+        self.report_df.sort_values(by='Guess Count', ascending=False, inplace=True)
+        # Write to file
+        with open(filename, 'a') as f:
+            f.write("\n")
+            f.write("Top 10 Hardest Games (most guesses):\n")
+        self.report_df.head(10).to_csv(filename, mode='a', index=False)
+
+    def generateReportPlot(self):
+        """ generate plot with guess count. """
+        # Convert data to DataFrame
+
+        counts = self.report_df['Guess Count'].value_counts().to_dict()
+
+        current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        filename = f"test_results/wordle_test_plot_{current_datetime}.png"
+        
+        x_axis = list(counts.keys())
+        y_axis = list(counts.values())
+        plt.bar(x_axis, y_axis, edgecolor='black')
+
+        plt.title(('Distribution of Game Results [' + self.agent_type + ']'))
+        plt.xlabel('Number of Guesses')
+        plt.ylabel('Number of Games')
+
+        # save the plot
+        plt.savefig(filename)
+        #show the plot
+        #plt.show()    

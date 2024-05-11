@@ -6,6 +6,7 @@ from collections import Counter
 import time
 import os
 
+from ReportDataCollector import ReportDataCollector
 
 
 class GameManager:
@@ -22,6 +23,12 @@ class GameManager:
         self.guess_durations = []
 
 
+    def attachDataCollector(self, dataCollector):
+        self.dataCollector = dataCollector
+
+    def getDataCollector(self):
+        return self.dataCollector
+    
     def get_AI_guess(self, agent) -> str:
         """ Returns a guess word from the given search agent """
         # Track time
@@ -175,10 +182,7 @@ class GameManager:
         successful = is_solved and self.guess_count <= MAX_GUESS_COUNT
 
         # Create row for DataFrame
-        data_row = {'Answer': answer,
-                    'Guess Count': self.guess_count,
-                    'Success' :  successful,
-                    'Avg Guess Time (ms)': 1000 * avg_guess_time,
-                    'Game Duration (ms)' : 1000 * game_duration}
-                    #'Max RAM (MB)' : max_ram} 
-        return data_row
+        self.dataCollector.recordData([ answer, self.guess_count, successful, avg_guess_time, game_duration ])
+
+        return []
+

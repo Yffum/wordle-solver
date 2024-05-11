@@ -1,6 +1,7 @@
 
 import functools
 import time
+from ReportDataCollector import ReportDataCollector
 
 from constants import MAX_GUESS_COUNT
 
@@ -185,6 +186,11 @@ class CSPSolver:
         self.answer = None
         self.guess_count = 0
 
+    def attachDataCollector(self, dataCollector):
+        self.dataCollector = dataCollector
+
+    def getDataCollector(self):
+        return self.dataCollector
 
     def generate_feedback(self, guess):
         for (index, letter) in enumerate(guess):
@@ -252,13 +258,7 @@ class CSPSolver:
         # Check if game was successfuly solved
         successful = self.is_solved and self.guess_count <= MAX_GUESS_COUNT
 
-        # Create row for DataFrame
-        data_row = {'Answer': guess,
-                    'Guess Count': self.guess_count,
-                    'Success' :  successful,
-                    'Avg Guess Time (ms)': 1000 * avg_guess_time,
-                    'Game Duration (ms)' : 1000 * game_duration}
-                    #'Max RAM (MB)' : max_ram} 
-    
-        return data_row
-    
+        self.dataCollector.recordData([ guess, self.guess_count, successful, avg_guess_time, game_duration ])
+
+        #return data_row
+        return []    
