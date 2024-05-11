@@ -29,7 +29,7 @@ class TreeSearchAgent(SearchAgent):
         and a letter probability distribution (a list of Counters), from which it 
         calculates its guesses. A new agent should be instantiated for each game, as 
         the vocab and probability distribution are adjusted each search. """
-    def __init__(self, vocab: set, letter_probability_distribution: list[Counter], mode: str='None'):
+    def __init__(self, vocab: set, letter_probability_distribution: list[Counter], start_guesses: list[str], mode: str='None'):
         # Words that can be guessed
         self.vocab = set(vocab)
         # List of adjusted letter probabilities
@@ -52,7 +52,7 @@ class TreeSearchAgent(SearchAgent):
         # Tracks how many guesses the agent has already made
         self.guess_count = 0
         # Sequence of guesses to start with
-        self.start_guesses = ['AUDIO', 'NERTS', 'LYMPH']
+        self.start_guesses = start_guesses
         
         # Default to simple tree search. The tree_search function returns the first word
         # it finds under score_threshold

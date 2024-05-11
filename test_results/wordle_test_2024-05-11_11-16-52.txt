@@ -1,0 +1,16 @@
+Date: 2024-05-11
+Search Mode: astar
+Test Size: 1
+Test Duration (min): 0.0
+Win Percentage (%): 100.0
+Avg Guess Count: 4.0
+Total Avg Guess Time (ms): 46.88
+Avg Game Duration (ms): 187.5
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+APTLY,4,True,46.88,187.5
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+APTLY,4,True,46.88,187.5

@@ -2,6 +2,7 @@ import random
 
 import DataProcessing
 from StartWordFinder import StartWordFinder
+from constants import FIRST_GUESS
 
 class DataManager:
     """ This class manages data that is initialized when starting the program 
@@ -31,7 +32,7 @@ class DataManager:
         # Determine sequence of initial guesses using StartWordFinder
         general_letter_probs = DataProcessing.get_general_letter_probabilities(list(self.answer_words))
         word_finder = StartWordFinder(self.guess_words, general_letter_probs)
-        self.start_words = word_finder.get_start_words() # Try 'AUDIO', 'ADIEU' as first words
+        self.start_words = word_finder.get_start_words(FIRST_GUESS)
              
     def get_random_answers(self, length: int) -> list:
         """ Returns a list of the given length with random answer words. """

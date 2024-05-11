@@ -39,14 +39,14 @@ def run(agent_type: str, test_words: list, data_manager:DataManager):
 
     
 
-def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter]) -> SearchAgent:
+def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter], start_guesses: list[str]) -> SearchAgent:
     """ Creates a search agent of the given type. Vocabulary is built from given lexicon, and 
         word scoring is determined by the given letter probability distribution. """
     if agent_type == 'brute':
         return BruteSearchAgent(lexicon, letter_probs)
     if agent_type in ('bfs', 'dfs', 'greedy', 'astar'):
         # Pass agent type to tree agent to choose bfs/dfs/astar
-        return TreeSearchAgent(lexicon, letter_probs, agent_type)
+        return TreeSearchAgent(lexicon, letter_probs, start_guesses, agent_type)
     # If agent_type isn't handled
     print("Error: agent_type", agent_type, "was not found.")
 
@@ -58,7 +58,7 @@ def test(agent_type: str, test_words: list, data_manager: DataManager):
     data = []
     for i, word in enumerate(test_words):
         # Create new search agent of given type
-        agent = create_search_agent(agent_type, data_manager.answer_words, data_manager.letter_probs)
+        agent = create_search_agent(agent_type, data_manager.answer_words, data_manager.letter_probs, data_manager.start_words)
         # Create new game
         game = GameManager(data_manager.guess_words, agent)
         # Play game using word as answer

@@ -182,39 +182,3 @@ class GameManager:
                     'Game Duration (ms)' : 1000 * game_duration}
                     #'Max RAM (MB)' : max_ram} 
         return data_row
-
-
-
-from SearchAgent import SearchAgent
-from BruteSearchAgent import BruteSearchAgent
-from TreeSearchAgent import TreeSearchAgent
-
-def create_search_agent(agent_type: str, lexicon: set, letter_probs: list[Counter]) -> SearchAgent:
-    """ Creats a search agent of the given type. Vocabulary is built from given lexicon, and 
-        word scoring is determined by the given letter probability distribution. """
-    if agent_type == 'brute':
-        return BruteSearchAgent(lexicon, letter_probs)
-    if agent_type == 'bfs' or 'dfs' or 'astar':
-        # Pass agent type to tree agent to choose bfs/dfs/astar
-        return TreeSearchAgent(lexicon, letter_probs, agent_type)
-
-
-
-# This modules's main method is used for one-off testing
-def main():
-    # Process lexicon and calculate letter probabilities
-    lexicon = DataProcessing.import_lexicon()
-    letter_probs = DataProcessing.calculate_letter_probability_distribution(lexicon)
-
-    # Create search agent using probabilities
-    #agent = TreeSearchAgent(lexicon, letter_probs)
-
-    agent = create_search_agent('bfs', lexicon, letter_probs)
-    
-    game = GameManager(lexicon, agent)
-    game.start(answer="GESTS", use_AI=True) # Try to guess LASER using the terminal
-
-
-
-if __name__ == '__main__':
-    main()

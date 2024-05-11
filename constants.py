@@ -1,4 +1,12 @@
-# Global Variables
+# ---------- GLOBAL VARIABLES ------------------------------------------------------------ #
+
+# This is the first word used to seed StartWordFinder, which is used to
+# determine a sequence of initial guesses. These guesses are used by 
+# TreeSearchAgent. If first word is None, StartWordFinder will generate one
+# deterministically using letter probabilites
+FIRST_GUESS = None
+# Try: 'OATER', 'AUDIO', 'ADIEU'
+
 
 # Scale for the astar heuristic function.
     # this constant scales the difference between a current word's score and
