@@ -74,13 +74,15 @@ class TreeSearchAgent(SearchAgent):
         else:
             raise ValueError(f"Mode '{mode}' not found. Select from {'bfs', 'dfs', 'greedy', 'astar'}")
     
-    
     # --- Define abstract methods
     # See SearchAgent.py
     def get_guess(self) -> str:
         # Increment guess count
         self.guess_count += 1
         guess = None
+        # Special case: check if all letters are confirmed
+        if len(self.confirmed_letters) == WORD_LENGTH:
+            return self.get_confirmed_word()
         # Use start_guesses first
         if self.guess_count <= len(self.start_guesses):
             guess = self.start_guesses[self.guess_count - 1]
@@ -97,6 +99,16 @@ class TreeSearchAgent(SearchAgent):
     # See SearchAgent.py
     def process_feedback(self, guess: str, letter_ratings: list[int]):
         return self.adjust_letter_probs(guess, letter_ratings)
+        
+    
+    def get_confirmed_word(self):
+        """ Returns a word using the confirmed letters """
+        chars = []
+        for i in self.confirmed_letters:
+            chars.append(self.confirmed_letters[i])
+        word = ''.join(chars)
+        return word
+            
         
         
     def clear_fringe(self):
