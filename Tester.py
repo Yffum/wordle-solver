@@ -3,8 +3,8 @@ from GameManager import GameManager
 from SearchAgent import SearchAgent
 from BruteSearchAgent import BruteSearchAgent
 from TreeSearchAgent import TreeSearchAgent
-from wordle_csp_solver import Dictionary
-from wordle_csp_solver import CSPSolver
+from CSPAgent import Dictionary
+from CSPAgent import CSPSolver
 from DataManager import DataManager
 
 import time
