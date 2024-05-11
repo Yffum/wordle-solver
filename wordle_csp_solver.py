@@ -63,10 +63,8 @@ class Dictionary:
 
         self.feedback = GuessStatus()
 
-    #    self.guesses = self.get_words_from_file('Data/valid_guesses.csv')
-    #    self.answers = self.get_words_from_file('Data/valid_solutions.csv')
-        self.guesses = self.get_words_from_file('Data/wordle_lexicon.txt')
-        self.answers = self.get_words_from_file('Data/wordle_lexicon.txt')
+        self.guesses = self.get_words_from_file('Data/valid_guesses.csv')
+        self.answers = self.get_words_from_file('Data/valid_solutions.csv')
 
         self.frequency = self.generate_letter_frequency(self.answers)
     #    self.word_scores = self.calculate_word_scores(self.guesses + self.answers, False)

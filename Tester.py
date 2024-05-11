@@ -11,7 +11,7 @@ import pandas as pd
 import time
 from datetime import datetime
 from collections import Counter
-
+import matplotlib.pyplot as plt
 
 def run(agent_type: str, test_words: list, data_manager:DataManager):
     """ Run test() and record/report duration"""
@@ -31,6 +31,9 @@ def run(agent_type: str, test_words: list, data_manager:DataManager):
     duration = round(duration/60, 2)
     # Write to file
     process_data(data, agent_type, duration)
+
+    # Generate plot
+    #process_plot(data, agent_type, duration)
 
     print("Total test duration:", duration, "minutes")
 
@@ -151,3 +154,26 @@ def process_data(data: list[dict], agent_type: str, duration: float):
         f.write("\n")
         f.write("Top 10 Hardest Games (most guesses):\n")
     df.head(10).to_csv(filename, mode='a', index=False)
+
+def process_plot(data: list[dict], agent_type: str, duration: float):
+    """ generate plot with guess count. """
+    # Convert data to DataFrame
+    df = pd.DataFrame.from_records(data)
+
+    current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    filename2 = f"test_results/wordle_test_plot_{current_datetime}.png"
+    
+    counts = df['Guess Count'].value_counts().to_dict()
+
+    x_axis = list(counts.keys())
+    y_axis = list(counts.values())
+    plt.bar(x_axis, y_axis, edgecolor='black')
+
+    plt.title(('Distribution of Game Results [' + agent_type + ']'))
+    plt.xlabel('Number of Guesses')
+    plt.ylabel('Number of Games')
+
+    # save the plot
+    plt.savefig(filename2)
+    #show the plot
+    plt.show()    
