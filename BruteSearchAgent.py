@@ -29,7 +29,7 @@ class BruteSearchAgent(SearchAgent):
 
     # See SearchAgent.py
     def process_feedback(self, guess: str, letter_ratings: list[int]):
-        return self.adjust_letter_probs(guess, letter_ratings)
+        self.adjust_letter_probs(guess, letter_ratings)
         
 
     def adjust_letter_probs(self, guess: str, letter_ratings: list[int]):
@@ -110,6 +110,8 @@ class BruteSearchAgent(SearchAgent):
             score = self.get_score(word)
             # Use negative score because PriorityQueue is a min heap
             rated_words.put((-score, word))
+            
+            
         # Remove impossible words which have a score of 0 from vocab
         self.vocab -= self.words_to_remove
         self.words_to_remove.clear()
@@ -125,6 +127,6 @@ class BruteSearchAgent(SearchAgent):
         #         print("Score:", score, "Word:", word)
 
         # Remove word from vocab to prevent repetition
-        self.vocab.remove(best_word)
+        self.vocab.discard(best_word)
         return best_word
 

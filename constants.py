@@ -12,7 +12,7 @@ THRESHOLD_DECREMENT = 0.3
 # The factor by which the treshold scales with the number of confirmed letters
 THRESHOLD_INCREASE_FACTOR = 0.3
 # Number of decimal places to round to when performing calculations
-PRECISION = 3
+PRECISION = 4
 
 
 # The internal max guess limit to identify errors
