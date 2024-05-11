@@ -8,6 +8,14 @@ FIRST_GUESS = None
 # Try: 'OATER', 'AUDIO', 'ADIEU'
 
 
+# Set this to a word and run main.py (give any test length) to run a single test 
+# using this word as the answer. Set to None otherwise. For testing.
+SINGLE_TEST_WORD = None
+# Try: 'PIQUE', previous issues because Q is very unlikely to be third letter
+# Note: Make sure word is in the solution set, or the agent may not find it.
+# For example, 'GESTS' will not work
+
+
 # Scale for the astar heuristic function.
     # this constant scales the difference between a current word's score and
     # the current score threshold in astar, in order to estimate the number

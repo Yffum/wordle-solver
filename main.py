@@ -1,7 +1,7 @@
 import Tester
 from GameManager import GameManager
 from DataManager import DataManager
-from constants import AGENT_TYPES
+from constants import AGENT_TYPES, SINGLE_TEST_WORD
 
 import sys
 
@@ -14,8 +14,12 @@ def test_wordle(data: DataManager, agent_type: str, test_length: int):
         agent_type (str): The type of search: ('brute', 'csp', 'bfs', 'dfs', 'greedy', 'astar')
         test_length (int): The number of games to run tests on
     """
-    test_words = data.get_random_answers(test_length)
-    Tester.run(agent_type, test_words, data)
+    # Check for single test word
+    if SINGLE_TEST_WORD != None:
+        Tester.run(agent_type, [SINGLE_TEST_WORD], data)
+    else: 
+        test_words = data.get_random_answers(test_length)
+        Tester.run(agent_type, test_words, data)
     
     
 def print_how_to():
