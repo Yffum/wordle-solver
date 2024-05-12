@@ -21,7 +21,22 @@ def import_lexicon(filepath: str='Data/wordle_lexicon.txt') -> set:
                 print("Warning:", word, "is not a valid word, and was skipped.")
     return lexicon
 
-
+def import_lexicon_as_list(filepath: str='Data/wordle_lexicon.txt') -> list:
+    """ Returns a set of words, read from each line in the given file """
+    lexicon = []
+    # Open the .csv file
+    with open(filepath, 'r') as file:
+        # Read each line
+        for line in file:
+            # Remove any leading or trailing whitespace and capitalize letters
+            word = line.strip().upper()
+            # If word is valid
+            if len(word) == WORD_LENGTH:
+                # Add the word to the lexicon
+                lexicon.append(word)
+            elif not word == '':
+                print("Warning:", word, "is not a valid word, and was skipped.")
+    return lexicon
 
 def calculate_letter_probability_distribution(lexicon: set) -> list[Counter]:
     """ Returns a list of Counters. The list index corresponds to the position of the char.

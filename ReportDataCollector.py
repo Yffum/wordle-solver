@@ -20,10 +20,11 @@ class ReportDataCollector:
             }
         )
 
-    def generateReportFile(self, agent_type: str, duration: float):
+    def generateReportFile(self, agent_type: str, duration: float, test_mode:str):
         self.report_df = pd.DataFrame.from_records(self.RunTimeData)
         self.agent_type = agent_type
         self.duration = duration
+        self.test_mode = test_mode
 
         # Count successes 
         success_count = self.report_df['Success'].value_counts().get(True, 0)
@@ -50,6 +51,7 @@ class ReportDataCollector:
         with open(filename, 'w') as f:
             f.write("Date: {}\n".format(datetime.now().strftime("%Y-%m-%d")))
             f.write("Search Mode: {}\n".format(agent_type))
+            f.write("Dataset mode: {}\n".format(test_mode))
             f.write("Test Size: {}\n".format(len(self.report_df)))
             f.write("Test Duration (min): {}\n".format(duration))
             f.write("Win Percentage (%): {}\n".format(win_percentage))
@@ -73,10 +75,21 @@ class ReportDataCollector:
             f.write("Top 10 Hardest Games (most guesses):\n")
         self.report_df.head(10).to_csv(filename, mode='a', index=False)
 
+    def sortWordsByDifficulty(self):
+        filename = f"Data/valid_solutions_ordered.csv"
+    
+        with open(filename, 'w') as f:
+            f.write("")
+
+        # Sort by easiest games (fewest guesses)
+        self.report_df.sort_values(by='Guess Count', ascending=True, inplace=True)
+
+        # Write words to file
+        self.report_df['Answer'].to_csv(filename, mode='a', index=False, header=False)
+
     def generateReportPlot(self):
         """ generate plot with guess count. """
         # Convert data to DataFrame
-
         counts = self.report_df['Guess Count'].value_counts().to_dict()
 
         current_datetime = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -84,13 +97,16 @@ class ReportDataCollector:
         
         x_axis = list(counts.keys())
         y_axis = list(counts.values())
-        plt.bar(x_axis, y_axis, edgecolor='black')
 
-        plt.title(('Distribution of Game Results [' + self.agent_type + ']'))
+        # configuration for the bar plot 
+        plt.bar(x_axis, y_axis, edgecolor='black')
+        plt.xticks(x_axis)
+        plt.title('Distribution of Game Results [' + self.agent_type + '/' + self.test_mode + '/' + str(len(self.report_df)) + ']')
         plt.xlabel('Number of Guesses')
         plt.ylabel('Number of Games')
 
         # save the plot
         plt.savefig(filename)
+
         #show the plot
         #plt.show()    

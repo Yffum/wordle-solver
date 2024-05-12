@@ -12,7 +12,7 @@ from datetime import datetime
 from collections import Counter
 from ReportDataCollector import ReportDataCollector
 
-def run(agent_type: str, test_words: list, data_manager:DataManager):
+def run(agent_type: str, test_words: list, data_manager:DataManager, test_mode:str):
     """ Run test() and record/report duration"""
     dataCollector = ReportDataCollector()
 
@@ -32,7 +32,7 @@ def run(agent_type: str, test_words: list, data_manager:DataManager):
     duration = round(duration/60, 2)
     
     # Write to file
-    dataCollector.generateReportFile(agent_type, duration)
+    dataCollector.generateReportFile(agent_type, duration, test_mode)
 
     # Generate plot
     dataCollector.generateReportPlot()
