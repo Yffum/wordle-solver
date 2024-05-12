@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: dfs
+Dataset mode: hard
+Test Size: 100
+Test Duration (min): 9.29
+Win Percentage (%): 97.0
+Avg Guess Count: 4.57
+Total Avg Guess Time (ms): 1301.18
+Avg Game Duration (ms): 5574.63
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SHAPE,4,True,99.43,398.01
+NOBLY,4,True,3774.41,15097.99
+HONEY,4,True,513.58,2054.64
+VENOM,4,True,5635.72,22543.2
+IMAGE,4,True,2530.21,10121.15
+WITCH,4,True,29.2,117.11
+SKIFF,4,True,2483.18,9933.05
+MACHO,4,True,168.53,674.43
+DADDY,4,True,76.48,306.21
+STUFF,4,True,412.19,1649.09
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,7,False,6.71,47.44
+GIVER,7,False,2.12,15.3
+GRAVE,7,False,503.34,3523.94
+WAFER,6,True,0.18,1.47
+DOWDY,6,True,429.76,2579.07
+RIVER,6,True,2.29,14.11
+JAUNT,6,True,15.48,93.32
+JAZZY,6,True,62.02,372.65
+DROVE,6,True,1947.3,11684.34
+FREAK,6,True,564.24,3385.96

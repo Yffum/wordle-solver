@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: bfs
+Dataset mode: easy
+Test Size: 100
+Test Duration (min): 23.7
+Win Percentage (%): 100.0
+Avg Guess Count: 4.28
+Total Avg Guess Time (ms): 3295.03
+Avg Game Duration (ms): 14221.95
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,4,True,10406.92,41628.26
+CLONE,4,True,686.38,2745.86
+ALLEY,4,True,282.41,1129.98
+ALLAY,4,True,3695.51,14782.58
+ASSET,4,True,11.06,44.52
+SHEET,4,True,24.75,99.29
+ALTAR,4,True,10.24,41.29
+LUSTY,4,True,37.09,148.67
+LEVEL,4,True,11.0,44.37
+LOATH,4,True,584.89,2339.9
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+STINT,6,True,7066.74,42401.03
+STATE,6,True,3600.25,21602.17
+EAGER,5,True,0.96,5.19
+TRITE,5,True,7266.94,36335.13
+STEEL,5,True,357.03,1785.54
+SALVE,5,True,317.75,1589.25
+GUSTY,5,True,211.58,1058.39
+FLAKY,5,True,3095.92,15480.09
+DELTA,5,True,6992.24,34961.76
+TAINT,5,True,247.04,1235.6

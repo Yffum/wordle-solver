@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: brute
+Dataset mode: random
+Test Size: 100
+Test Duration (min): 0.05
+Win Percentage (%): 97.0
+Avg Guess Count: 3.85
+Total Avg Guess Time (ms): 8.16
+Avg Game Duration (ms): 30.02
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLASH,2,True,14.11,28.37
+SLIMY,2,True,12.82,25.76
+SWATH,2,True,14.22,28.62
+RECUR,3,True,9.24,27.89
+TAKEN,3,True,10.41,31.42
+PRINT,3,True,8.98,27.12
+PHOTO,3,True,9.2,27.8
+CURIO,3,True,8.57,25.91
+OUNCE,3,True,9.34,28.21
+BRUTE,3,True,10.1,30.46
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GRAZE,8,False,4.66,37.58
+JAUNT,7,False,4.77,33.72
+HASTE,7,False,7.38,52.02
+KNACK,6,True,4.87,29.48
+GLAZE,6,True,7.3,44.24
+HAPPY,6,True,4.87,29.49
+RIVER,6,True,5.4,32.8
+BRAWN,5,True,6.18,31.21
+FIZZY,5,True,5.24,26.45
+BACON,5,True,5.45,27.46

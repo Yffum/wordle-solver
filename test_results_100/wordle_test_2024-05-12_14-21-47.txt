@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: astar
+Dataset mode: random
+Test Size: 100
+Test Duration (min): 6.33
+Win Percentage (%): 99.0
+Avg Guess Count: 4.3
+Total Avg Guess Time (ms): 892.78
+Avg Game Duration (ms): 3799.42
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PROXY,4,True,2682.58,10730.64
+ANGEL,4,True,104.69,419.05
+WISER,4,True,0.36,1.67
+WAIST,4,True,247.34,989.68
+CLOAK,4,True,123.64,494.87
+UNDUE,4,True,835.06,3340.58
+FLASK,4,True,1185.6,4742.73
+IMPLY,4,True,3923.15,15692.92
+CHORE,4,True,8.3,33.48
+TAUNT,4,True,2.28,9.39
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GROVE,7,False,1030.83,7216.44
+GODLY,6,True,826.11,4957.42
+RARER,6,True,0.38,2.67
+WASTE,6,True,2.18,13.55
+FLAKE,6,True,744.14,4465.44
+ALOOF,5,True,1171.97,5860.33
+BULLY,5,True,1167.3,5836.95
+TWIRL,5,True,1539.59,7698.45
+SCOLD,5,True,892.03,4460.61
+DANDY,5,True,52.98,265.33

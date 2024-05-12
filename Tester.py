@@ -32,10 +32,7 @@ def run(agent_type: str, test_words: list, data_manager:DataManager, test_mode:s
     duration = round(duration/60, 2)
     
     # Write to file
-    dataCollector.generateReportFile(agent_type, duration, test_mode)
-
-    # Generate plot
-    dataCollector.generateReportPlot()
+    dataCollector.generateReport(agent_type, duration, test_mode)
 
     print("Total test duration:", duration, "minutes")
 

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: dfs
+Dataset mode: random
+Test Size: 100
+Test Duration (min): 14.24
+Win Percentage (%): 100.0
+Avg Guess Count: 4.27
+Total Avg Guess Time (ms): 2027.4
+Avg Game Duration (ms): 8540.96
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+CHUMP,3,True,0.0,0.19
+ETUDE,4,True,366.43,1466.02
+PLEAT,4,True,5262.17,21049.01
+SPEND,4,True,4971.06,19884.55
+MOUTH,4,True,561.4,2246.01
+MINOR,4,True,512.44,2050.08
+TROPE,4,True,10896.17,43585.01
+NOISE,4,True,6013.94,24056.08
+SCOLD,4,True,4943.31,19773.58
+GOURD,4,True,62.97,252.22
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SWIFT,5,True,941.36,4707.47
+ANGLE,5,True,1279.23,6396.69
+BLOND,5,True,2234.64,11173.62
+FIBER,5,True,2.52,12.94
+FROND,5,True,3578.1,17890.99
+TOPAZ,5,True,5912.82,29564.58
+SNUFF,5,True,162.13,811.1
+FEVER,5,True,3.51,17.87
+USAGE,5,True,3611.27,18056.8
+SHALL,5,True,237.75,1189.2

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: csp
+Dataset mode: easy
+Test Size: 100
+Test Duration (min): 0.02
+Win Percentage (%): 100.0
+Avg Guess Count: 3.06
+Total Avg Guess Time (ms): 0.8
+Avg Game Duration (ms): 2.08
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,1,True,0.0,0.26
+SLANT,2,True,1.27,1.73
+SAINT,2,True,1.23,1.78
+BASAL,2,True,1.13,1.58
+LATTE,2,True,1.21,1.73
+STALE,2,True,1.18,1.65
+LEAST,2,True,1.29,1.83
+ALGAE,2,True,1.35,1.86
+LUSTY,2,True,1.13,1.59
+ASSET,2,True,1.24,1.73
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PAYEE,6,True,0.29,2.56
+CRAZY,5,True,0.39,2.62
+TOAST,5,True,0.29,2.14
+STINT,5,True,0.37,2.5
+DALLY,5,True,0.32,2.32
+TAINT,5,True,0.33,2.39
+GLORY,5,True,0.36,2.43
+START,5,True,0.4,2.97
+SORRY,5,True,0.41,2.72
+TENET,5,True,0.33,2.35

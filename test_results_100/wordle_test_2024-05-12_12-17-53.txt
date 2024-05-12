@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: brute
+Dataset mode: hard
+Test Size: 100
+Test Duration (min): 0.05
+Win Percentage (%): 74.0
+Avg Guess Count: 6.31
+Total Avg Guess Time (ms): 4.99
+Avg Game Duration (ms): 31.69
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+RABID,6,True,4.87,29.46
+BAWDY,6,True,4.8,29.1
+AGAPE,6,True,5.32,32.19
+VAUNT,6,True,5.47,33.1
+VENOM,6,True,4.68,28.41
+WIDTH,6,True,4.69,28.42
+WINCH,6,True,4.39,26.63
+GLAZE,6,True,6.73,40.68
+SCREW,6,True,5.12,30.98
+PIPER,6,True,4.8,29.1
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+HATCH,8,False,4.27,34.71
+HOUND,8,False,3.58,29.04
+HOMER,8,False,3.97,32.11
+GRAZE,8,False,5.07,40.99
+JOKER,8,False,3.97,32.14
+NIGHT,7,False,3.92,27.78
+JOIST,7,False,4.41,31.19
+FATTY,7,False,4.81,34.04
+HOVER,7,False,4.61,32.67
+VIPER,7,False,4.6,32.65

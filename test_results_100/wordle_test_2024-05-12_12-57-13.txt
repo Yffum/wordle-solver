@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: bfs
+Dataset mode: hard
+Test Size: 100
+Test Duration (min): 15.48
+Win Percentage (%): 95.0
+Avg Guess Count: 4.76
+Total Avg Guess Time (ms): 2081.82
+Avg Game Duration (ms): 9288.94
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+RABID,4,True,18.38,73.78
+STOOP,4,True,425.45,1702.09
+NOBLY,4,True,7509.0,30036.29
+HONEY,4,True,400.64,1602.85
+STUFF,4,True,360.07,1440.56
+HAPPY,4,True,385.8,1543.49
+SKIFF,4,True,4436.32,17745.6
+VODKA,4,True,4749.7,18999.08
+AGAPE,4,True,3107.87,12431.76
+VENOM,4,True,8931.28,35725.42
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,8,False,4.93,40.0
+GRAZE,8,False,1683.75,13470.67
+VAUNT,8,False,6.36,51.34
+WAFER,7,False,1.07,7.9
+GRAVE,7,False,1884.11,13189.34
+WITCH,6,True,143.27,860.06
+WOUND,6,True,109.19,655.58
+SHAVE,6,True,320.45,1923.11
+WATCH,6,True,6.89,41.66
+WASTE,6,True,7.77,46.96

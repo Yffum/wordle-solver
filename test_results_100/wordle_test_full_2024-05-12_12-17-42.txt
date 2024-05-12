@@ -1,0 +1,112 @@
+Date: 2024-05-12
+Search Mode: csp
+Dataset mode: hard
+Test Size: 100
+Test Duration (min): 0.02
+Win Percentage (%): 90.0
+Avg Guess Count: 4.72
+Total Avg Guess Time (ms): 0.46
+Avg Game Duration (ms): 2.59
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SCREW,2,True,1.37,1.86
+RABBI,3,True,0.71,2.14
+STAFF,3,True,0.64,2.03
+MACHO,3,True,0.69,2.08
+IMAGE,3,True,0.76,2.19
+DOWDY,3,True,0.76,2.22
+ABOVE,3,True,0.66,2.07
+HORSE,3,True,0.67,2.15
+AGAPE,3,True,0.77,2.28
+NOBLY,3,True,0.64,1.95
+BANJO,3,True,0.79,2.29
+HELIX,3,True,0.69,2.06
+HOMER,3,True,0.8,2.28
+CHAFF,3,True,0.77,2.23
+AMAZE,3,True,0.79,2.3
+GECKO,4,True,0.52,2.48
+HANDY,4,True,0.46,2.21
+DIVER,4,True,0.53,2.44
+RIVAL,4,True,0.49,2.48
+DOPEY,4,True,0.59,2.76
+HYPER,4,True,0.47,2.4
+HONEY,4,True,0.53,2.57
+FLUFF,4,True,0.52,2.73
+GROWL,4,True,0.49,2.5
+TAFFY,4,True,0.5,2.37
+HAPPY,4,True,0.47,2.3
+STUFF,4,True,0.45,2.24
+HOIST,4,True,0.39,2.06
+NERDY,4,True,0.6,2.74
+HATCH,4,True,0.43,2.13
+VAPOR,4,True,0.47,2.26
+EXPEL,4,True,0.43,2.14
+RURAL,4,True,0.48,2.41
+STOOP,4,True,0.44,2.17
+DADDY,4,True,0.55,2.61
+RABID,4,True,0.47,2.29
+SKIFF,4,True,0.51,2.56
+HOUSE,4,True,0.45,2.3
+HASTE,4,True,0.44,2.25
+HOVER,4,True,0.5,2.37
+DROVE,4,True,0.56,2.67
+PUPAL,4,True,0.43,2.21
+HOWDY,4,True,0.52,2.55
+BAWDY,4,True,0.46,2.28
+JERKY,4,True,0.63,3.24
+JIFFY,4,True,0.59,2.7
+SMEAR,4,True,0.42,2.3
+KNACK,4,True,0.54,2.61
+DRAPE,4,True,0.5,2.33
+DOZEN,4,True,0.55,2.65
+HOUND,4,True,0.51,2.33
+FREAK,4,True,0.47,2.35
+VENOM,5,True,0.4,2.65
+UDDER,5,True,0.39,2.78
+JOKER,5,True,0.4,2.78
+MAXIM,5,True,0.36,2.53
+FATTY,5,True,0.37,2.65
+DROWN,5,True,0.38,2.6
+DREAM,5,True,0.38,2.63
+WREAK,5,True,0.33,2.42
+GRAVE,5,True,0.38,2.67
+VODKA,5,True,0.4,2.83
+GLEAM,5,True,0.34,2.51
+JOIST,5,True,0.33,2.45
+GLAZE,5,True,0.4,2.58
+GIVER,5,True,0.44,2.85
+ERODE,5,True,0.4,2.65
+HATER,5,True,0.37,2.7
+MATCH,5,True,0.33,2.33
+DRAWL,5,True,0.35,2.5
+STAMP,5,True,0.33,2.36
+VERGE,5,True,0.4,2.73
+MAUVE,5,True,0.34,2.43
+WIDTH,5,True,0.4,2.74
+TOXIC,5,True,0.36,2.53
+VERVE,6,True,0.31,2.94
+NIGHT,6,True,0.27,2.7
+VIPER,6,True,0.38,3.35
+FUZZY,6,True,0.32,2.89
+VAGUE,6,True,0.31,2.91
+MANIC,6,True,0.29,2.74
+PIPER,6,True,0.35,3.12
+RIVER,6,True,0.33,2.9
+WITCH,6,True,0.28,2.74
+POKER,6,True,0.36,3.08
+WORSE,6,True,0.26,2.64
+WINCH,6,True,0.37,3.31
+GRAZE,6,True,0.31,2.85
+JAZZY,6,True,0.3,2.79
+SHAPE,6,True,0.33,2.94
+WATCH,7,False,0.25,3.11
+WAFER,7,False,0.23,2.89
+MOWER,7,False,0.34,4.13
+WOUND,7,False,0.29,3.41
+JAUNT,7,False,0.26,3.18
+WASTE,7,False,0.2,2.59
+SHAVE,7,False,0.34,3.63
+ROWER,8,False,0.23,3.27
+VAUNT,9,False,0.19,3.51
+WIGHT,9,False,0.17,3.17

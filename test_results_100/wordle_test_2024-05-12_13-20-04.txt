@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: bfs
+Dataset mode: random
+Test Size: 100
+Test Duration (min): 22.83
+Win Percentage (%): 99.0
+Avg Guess Count: 4.29
+Total Avg Guess Time (ms): 3288.63
+Avg Game Duration (ms): 13695.91
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SHARE,4,True,696.59,2786.83
+FROCK,4,True,4480.44,17922.09
+FILET,4,True,364.92,1460.02
+BLURB,4,True,171.2,685.11
+SLIMY,4,True,642.32,2569.62
+VALID,4,True,23.57,94.59
+SPOOL,4,True,9570.24,38281.33
+DUMPY,4,True,5265.46,21062.18
+QUAKE,4,True,6690.65,26762.98
+HONEY,4,True,467.0,1868.34
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+JOLLY,7,False,2325.87,16281.72
+WATCH,6,True,8.05,48.82
+FROWN,6,True,126.13,757.27
+CRIER,5,True,1.67,8.69
+WRUNG,5,True,159.65,798.68
+SASSY,5,True,12.25,61.62
+FLUSH,5,True,184.69,923.89
+GIVER,5,True,9.0,45.36
+FIBER,5,True,9.38,47.42
+TRIAD,5,True,7921.89,39609.88

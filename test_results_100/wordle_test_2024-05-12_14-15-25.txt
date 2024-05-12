@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: astar
+Dataset mode: hard
+Test Size: 100
+Test Duration (min): 5.29
+Win Percentage (%): 94.0
+Avg Guess Count: 4.7
+Total Avg Guess Time (ms): 720.89
+Avg Game Duration (ms): 3171.27
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,4,True,2.91,11.92
+HONEY,4,True,122.69,491.06
+MACHO,4,True,162.25,649.29
+STUFF,4,True,99.88,399.86
+HAPPY,4,True,110.98,444.21
+SKIFF,4,True,694.74,2779.3
+VODKA,4,True,1878.25,7513.31
+WORSE,4,True,2401.2,9605.09
+GROWL,4,True,2279.1,9116.73
+HATER,4,True,0.05,0.44
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+JAUNT,8,False,1.22,10.26
+VAUNT,7,False,1.29,9.47
+ERODE,7,False,961.77,6732.97
+WAFER,7,False,0.39,3.18
+WREAK,7,False,607.84,4255.51
+RIVER,7,False,0.95,7.11
+DADDY,6,True,34.83,209.46
+VIPER,6,True,1.62,10.45
+SHAVE,6,True,89.1,535.1
+GIVER,6,True,1.15,7.27

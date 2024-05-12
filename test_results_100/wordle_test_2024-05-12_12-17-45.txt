@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: csp
+Dataset mode: random
+Test Size: 100
+Test Duration (min): 0.02
+Win Percentage (%): 98.0
+Avg Guess Count: 3.82
+Total Avg Guess Time (ms): 0.6
+Avg Game Duration (ms): 2.39
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+EMAIL,2,True,1.21,1.71
+DELTA,2,True,1.34,1.98
+BRUTE,2,True,1.46,1.96
+ATONE,2,True,1.27,1.75
+SMILE,2,True,1.23,1.71
+BLESS,2,True,1.21,1.73
+FILTH,2,True,1.22,1.74
+BETEL,2,True,1.3,1.78
+LEAVE,2,True,1.3,1.84
+MUDDY,3,True,0.92,2.89
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+JOLLY,7,False,0.23,2.92
+RATTY,7,False,0.25,3.45
+MANIC,6,True,0.29,2.76
+LEPER,6,True,0.27,2.62
+ROUGH,6,True,0.36,3.31
+COWER,6,True,0.34,3.15
+PURSE,5,True,0.33,2.65
+UTTER,5,True,0.33,2.32
+JOKER,5,True,0.4,2.61
+HUSSY,5,True,0.32,2.38

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: greedy
+Dataset mode: easy
+Test Size: 100
+Test Duration (min): 2.23
+Win Percentage (%): 100.0
+Avg Guess Count: 4.19
+Total Avg Guess Time (ms): 320.59
+Avg Game Duration (ms): 1335.8
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,4,True,1009.64,4039.0
+LOATH,4,True,80.63,322.83
+CLONE,4,True,151.86,607.75
+ALLEY,4,True,26.94,108.05
+ALLAY,4,True,239.67,959.01
+ASSET,4,True,1.99,8.22
+SHEET,4,True,2.05,8.49
+ALTAR,4,True,4.35,17.67
+LUSTY,4,True,3.6,14.65
+CRASS,4,True,5.55,22.45
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+EAGER,6,True,0.3,2.18
+TOAST,5,True,838.62,4193.6
+CRONY,5,True,33.19,166.34
+TEASE,5,True,451.8,2259.44
+BLAST,5,True,234.59,1173.43
+FALSE,5,True,37.34,187.11
+STALE,5,True,817.61,4088.49
+TRITE,5,True,581.74,2909.2
+STATE,5,True,519.16,2596.37
+FLAKY,5,True,295.89,1479.9

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: greedy
+Dataset mode: hard
+Test Size: 100
+Test Duration (min): 2.24
+Win Percentage (%): 94.0
+Avg Guess Count: 4.7
+Total Avg Guess Time (ms): 310.05
+Avg Game Duration (ms): 1346.54
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+IMAGE,4,True,2037.3,8149.58
+HONEY,4,True,80.03,320.4
+AGAPE,4,True,1477.1,5908.72
+VENOM,4,True,1182.24,4729.28
+SKIFF,4,True,287.32,1149.61
+DRAPE,4,True,647.77,2591.46
+MANIC,4,True,12.34,49.73
+RURAL,4,True,1565.74,6263.33
+SCREW,4,True,72.0,288.29
+HATER,4,True,0.04,0.4
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+JAUNT,8,False,1.42,11.86
+ROWER,7,False,0.62,4.73
+ERODE,7,False,96.59,676.67
+VAUNT,7,False,1.7,12.39
+JOKER,7,False,0.82,6.2
+DROWN,7,False,12.98,91.33
+DROVE,6,True,105.84,635.61
+WIGHT,6,True,412.65,2476.52
+HATCH,6,True,2.9,18.08
+GIVER,6,True,4.01,24.45

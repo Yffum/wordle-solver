@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: greedy
+Dataset mode: random
+Test Size: 100
+Test Duration (min): 2.26
+Win Percentage (%): 99.0
+Avg Guess Count: 4.25
+Total Avg Guess Time (ms): 324.85
+Avg Game Duration (ms): 1353.87
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ABODE,4,True,22.24,89.26
+CHINA,4,True,8.99,36.22
+CURRY,4,True,36.08,144.6
+THESE,4,True,62.8,251.51
+PERCH,4,True,1879.37,7517.8
+HAZEL,4,True,0.82,3.54
+CABIN,4,True,0.04,0.42
+CRASS,4,True,5.79,23.41
+SPINE,4,True,1444.8,5779.53
+AGENT,4,True,914.49,3658.31
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GLOAT,7,False,82.06,575.06
+HUTCH,6,True,77.82,467.38
+WOOZY,6,True,123.62,742.25
+RIPER,6,True,2.34,14.42
+FALSE,5,True,32.45,162.66
+SCOLD,5,True,933.07,4665.78
+ARBOR,5,True,24.83,124.55
+KNIFE,5,True,31.24,156.64
+FIBER,5,True,4.35,22.05
+AGING,5,True,876.41,4382.5

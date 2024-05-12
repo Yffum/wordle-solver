@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: dfs
+Dataset mode: easy
+Test Size: 100
+Test Duration (min): 13.81
+Win Percentage (%): 99.0
+Avg Guess Count: 4.29
+Total Avg Guess Time (ms): 1925.35
+Avg Game Duration (ms): 8284.47
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+TROLL,4,True,4959.95,19840.14
+ALLEY,4,True,201.52,806.39
+ASSET,4,True,24.01,96.34
+SHEET,4,True,10.28,41.39
+ALTAR,4,True,5.1,20.63
+LUSTY,4,True,19.01,76.37
+LEVEL,4,True,10.78,43.41
+TOAST,4,True,6085.92,24344.01
+PLANT,4,True,7581.52,30326.41
+SANER,4,True,1.06,4.47
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+FOLLY,7,False,2215.52,15509.28
+EAGER,6,True,0.42,2.88
+STATE,6,True,2910.48,17463.42
+SHALL,5,True,218.49,1092.9
+TRUST,5,True,244.24,1221.62
+BLISS,5,True,3023.88,15119.87
+BLAST,5,True,3515.87,17579.79
+TAINT,5,True,78.09,390.86
+STINT,5,True,3744.59,18723.45
+FREER,5,True,3.99,20.26
