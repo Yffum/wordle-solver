@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.03
+Win Percentage (%): 93.95
+Avg Guess Count: 4.82
+Total Avg Guess Time (ms): 1.27
+Avg Game Duration (ms): 6.77
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ABACK,2,True,3.16,4.26
+BEEFY,2,True,2.7,3.98
+JAUNT,2,True,3.18,4.32
+EJECT,2,True,2.17,3.24
+BACON,2,True,3.14,4.23
+JELLY,2,True,3.28,4.39
+ALOFT,2,True,2.48,3.58
+GAMMA,2,True,3.9,5.08
+BEFIT,2,True,2.34,3.5
+BANJO,2,True,2.56,4.02
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PARER,9,False,0.55,8.81
+WASTE,9,False,0.56,9.04
+WIGHT,9,False,0.52,7.67
+WAVER,9,False,0.53,8.03
+SAUTE,8,False,0.57,7.27
+SWEAR,8,False,0.63,8.16
+SWELL,8,False,0.68,7.72
+TAPER,8,False,0.59,7.53
+TASTY,8,False,0.61,7.94
+STACK,8,False,0.68,8.68

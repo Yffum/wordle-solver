@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.05
+Win Percentage (%): 93.05
+Avg Guess Count: 4.81
+Total Avg Guess Time (ms): 1.25
+Avg Game Duration (ms): 7.14
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+YACHT,2,True,2.3,3.78
+QUACK,2,True,2.66,4.53
+ABASE,2,True,3.79,5.27
+ALIKE,2,True,2.53,4.25
+BAYOU,2,True,2.29,3.76
+FLAKY,2,True,2.41,3.84
+ABACK,2,True,2.56,4.17
+GAUDY,2,True,2.24,3.84
+BULKY,2,True,1.79,3.08
+KITTY,2,True,2.29,3.97
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+TATTY,11,False,0.38,9.18
+TALLY,10,False,0.45,9.52
+TAWNY,10,False,0.43,9.93
+TASTY,9,False,0.43,7.69
+MANLY,9,False,0.43,8.11
+WIGHT,9,False,0.75,10.54
+WORRY,9,False,0.44,7.73
+SAVVY,9,False,0.46,8.28
+NANNY,9,False,0.41,7.23
+WOUND,9,False,0.33,6.38

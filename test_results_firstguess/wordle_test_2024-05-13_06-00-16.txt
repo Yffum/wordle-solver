@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.31
+Win Percentage (%): 94.56
+Avg Guess Count: 4.81
+Total Avg Guess Time (ms): 1.59
+Avg Game Duration (ms): 8.74
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PENCE,2,True,6.69,9.75
+PIZZA,2,True,2.3,3.6
+ADEPT,2,True,2.61,4.14
+BOOZE,2,True,2.54,3.97
+PLAZA,2,True,2.54,3.98
+OZONE,2,True,1.57,2.52
+ADAPT,2,True,2.47,3.74
+GAUZE,2,True,2.39,3.76
+AZURE,2,True,5.57,8.73
+ABBEY,2,True,3.16,4.7
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,10,False,0.58,9.93
+VAUNT,10,False,0.51,9.18
+TIGHT,9,False,0.51,8.26
+WOOER,9,False,0.72,9.78
+ROWER,9,False,0.73,10.37
+TAUNT,9,False,0.59,8.94
+SAVVY,8,False,0.61,8.35
+TATTY,8,False,1.38,16.53
+WISER,8,False,3.32,37.54
+ROGER,8,False,0.82,9.3

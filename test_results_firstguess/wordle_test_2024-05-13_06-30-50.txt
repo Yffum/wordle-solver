@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.09
+Win Percentage (%): 97.19
+Avg Guess Count: 4.08
+Total Avg Guess Time (ms): 1.21
+Avg Game Duration (ms): 5.46
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ONSET,2,True,3.23,4.8
+OTHER,2,True,2.82,3.98
+CARAT,2,True,3.48,5.12
+EXTRA,2,True,3.18,4.64
+ORGAN,2,True,3.17,4.59
+DETER,2,True,2.83,3.93
+FETAL,2,True,2.05,2.9
+AFTER,2,True,1.91,2.67
+BAGEL,2,True,3.38,4.63
+OCTAL,2,True,3.2,4.65
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROVER,10,False,0.47,9.01
+LOWER,10,False,0.45,9.24
+ROWER,10,False,0.43,8.78
+WOOER,10,False,0.25,5.11
+WIGHT,9,False,0.27,4.78
+LOVER,9,False,0.41,7.4
+WISER,9,False,0.35,5.87
+POSER,9,False,0.28,4.82
+POWER,9,False,0.44,7.97
+SOWER,9,False,0.44,7.89

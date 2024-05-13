@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.16
+Win Percentage (%): 96.93
+Avg Guess Count: 4.05
+Total Avg Guess Time (ms): 1.29
+Avg Game Duration (ms): 5.87
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ALTAR,2,True,2.34,3.39
+FORTE,2,True,3.12,4.64
+ABATE,2,True,3.85,5.34
+BERET,2,True,3.08,4.55
+BEAST,2,True,3.17,4.7
+APART,2,True,2.95,4.56
+PARTY,2,True,3.48,4.99
+CAMEO,2,True,2.97,4.6
+BERRY,2,True,3.35,5.2
+BLURT,2,True,2.96,4.55
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,10,False,0.49,10.13
+WOOER,10,False,0.31,6.99
+LOWER,10,False,0.45,9.16
+ROVER,10,False,0.31,6.77
+WAVER,9,False,0.47,8.93
+LOVER,9,False,0.44,8.56
+SOWER,9,False,0.44,8.31
+WAFER,9,False,0.31,5.94
+POSER,9,False,0.42,8.49
+VAUNT,9,False,0.41,8.2

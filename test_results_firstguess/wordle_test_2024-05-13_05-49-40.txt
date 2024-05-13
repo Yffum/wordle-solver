@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.24
+Win Percentage (%): 90.8
+Avg Guess Count: 4.98
+Total Avg Guess Time (ms): 1.48
+Avg Game Duration (ms): 8.27
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+EJECT,2,True,2.92,4.19
+ABBEY,2,True,2.22,2.97
+BEECH,2,True,3.16,4.3
+JUDGE,2,True,3.49,4.72
+BOOZY,2,True,3.52,4.72
+JOKER,2,True,3.72,5.0
+JAUNT,2,True,3.63,4.8
+ENJOY,2,True,2.75,4.18
+BEACH,2,True,3.92,5.35
+BELIE,2,True,4.28,5.71
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,11,False,0.67,11.74
+WOUND,10,False,0.53,8.24
+TATTY,10,False,0.71,11.27
+TIGHT,10,False,0.75,11.65
+TOWER,9,False,0.7,10.12
+TALLY,9,False,0.8,10.91
+SIGHT,9,False,0.84,11.37
+SHAVE,9,False,0.57,9.29
+SWASH,9,False,0.83,11.28
+SOUND,9,False,0.88,11.65

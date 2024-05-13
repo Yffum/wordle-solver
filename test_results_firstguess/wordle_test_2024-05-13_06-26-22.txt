@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 0.54
+Win Percentage (%): 96.63
+Avg Guess Count: 4.25
+Total Avg Guess Time (ms): 0.6
+Avg Game Duration (ms): 2.84
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+AUDIO,1,True,0.0,0.39
+AXIOM,2,True,1.3,1.87
+BLOND,2,True,1.37,1.99
+AIDER,2,True,1.39,1.88
+BEGUN,2,True,1.28,1.82
+OUTDO,2,True,1.31,1.96
+BUILD,2,True,1.31,1.83
+VIOLA,2,True,1.38,1.96
+DAILY,2,True,1.3,1.81
+AUDIT,2,True,1.8,2.48
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,9,False,0.21,3.67
+SAVVY,9,False,0.27,4.61
+WOUND,9,False,0.17,3.22
+SWEAR,8,False,0.32,4.23
+ZESTY,8,False,0.25,3.39
+SOUND,8,False,0.2,3.11
+WAFER,8,False,0.33,4.51
+SWEAT,8,False,0.3,3.82
+PROVE,8,False,0.3,4.16
+TIGHT,8,False,0.25,3.57

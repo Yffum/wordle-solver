@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.34
+Win Percentage (%): 95.16
+Avg Guess Count: 4.55
+Total Avg Guess Time (ms): 1.73
+Avg Game Duration (ms): 8.68
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+AGLOW,2,True,3.02,4.44
+BAWDY,2,True,2.67,4.26
+AWAIT,2,True,3.75,5.9
+ONION,2,True,4.57,5.92
+BOBBY,2,True,2.91,4.12
+BYLAW,2,True,2.61,3.75
+AWOKE,2,True,2.49,3.67
+OAKEN,2,True,3.81,5.35
+INBOX,2,True,3.25,5.33
+BORAX,2,True,2.96,4.46
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SANER,9,False,1.0,13.88
+TOWER,9,False,0.39,7.43
+TASTY,9,False,0.76,10.14
+SAVVY,9,False,1.12,15.19
+TATTY,9,False,0.76,10.53
+TIGHT,9,False,0.87,12.05
+SOUND,8,False,0.77,10.11
+STACK,8,False,0.78,9.3
+VAUNT,8,False,0.56,6.43
+STARE,8,False,0.94,11.35

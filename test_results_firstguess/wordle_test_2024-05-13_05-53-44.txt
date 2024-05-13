@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.02
+Win Percentage (%): 93.95
+Avg Guess Count: 4.79
+Total Avg Guess Time (ms): 1.23
+Avg Game Duration (ms): 6.56
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+MAMMA,1,True,0.0,0.79
+KARMA,2,True,2.55,3.74
+BACON,2,True,3.4,4.58
+MAGMA,2,True,2.86,4.18
+BIOME,2,True,1.74,2.54
+COMMA,2,True,2.75,4.14
+GAMMA,2,True,2.67,3.95
+MIMIC,2,True,2.69,3.95
+MACAW,2,True,2.81,4.14
+BALMY,2,True,2.28,3.31
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WAVER,9,False,0.58,9.05
+WIGHT,9,False,0.67,9.54
+WAFER,9,False,0.53,8.02
+ROVER,9,False,0.77,10.31
+VAUNT,9,False,0.51,8.62
+WASTE,9,False,0.5,7.88
+ZESTY,8,False,0.87,10.09
+SWILL,8,False,0.82,9.43
+STAKE,8,False,0.65,8.53
+WRING,8,False,0.8,9.21

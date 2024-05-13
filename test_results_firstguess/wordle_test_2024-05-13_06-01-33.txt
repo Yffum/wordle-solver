@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.08
+Win Percentage (%): 91.66
+Avg Guess Count: 4.99
+Total Avg Guess Time (ms): 1.31
+Avg Game Duration (ms): 7.37
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+QUACK,2,True,2.69,3.97
+EQUAL,2,True,1.89,2.95
+EQUIP,2,True,2.27,3.67
+JUNTA,2,True,2.41,3.56
+EJECT,2,True,2.21,3.37
+BANJO,2,True,2.23,3.53
+ABACK,2,True,3.0,4.17
+BEECH,2,True,3.64,4.91
+MAJOR,2,True,2.82,4.06
+AHEAD,2,True,2.73,3.89
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WAFER,10,False,0.5,9.03
+WAVER,10,False,0.49,8.75
+WIGHT,10,False,0.61,10.1
+WOUND,9,False,0.58,7.76
+WATCH,9,False,0.45,7.59
+TIGHT,9,False,0.7,9.94
+WASTE,9,False,0.57,8.84
+ROWER,9,False,0.6,7.86
+PARER,9,False,0.54,8.52
+SAFER,9,False,0.58,9.04

@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 0.98
+Win Percentage (%): 98.14
+Avg Guess Count: 4.29
+Total Avg Guess Time (ms): 1.14
+Avg Game Duration (ms): 5.5
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+LYMPH,1,True,0.0,0.64
+BYLAW,2,True,2.97,4.18
+RALPH,2,True,1.55,2.18
+CRAMP,2,True,2.98,4.57
+LOOPY,2,True,2.77,3.89
+DOPEY,2,True,2.39,3.58
+PLUSH,2,True,2.63,3.82
+PYGMY,2,True,2.45,3.62
+CRYPT,2,True,2.57,3.77
+APPLY,2,True,1.64,2.41
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WOOER,8,False,0.83,9.75
+TRUER,8,False,0.71,8.22
+SOWER,8,False,0.46,5.32
+PROVE,8,False,0.28,4.4
+TATTY,8,False,0.5,7.21
+ZESTY,8,False,0.45,6.62
+SWILL,8,False,0.28,3.82
+WIGHT,8,False,0.41,6.27
+TAWNY,8,False,0.45,6.65
+WAFER,7,False,0.42,4.11

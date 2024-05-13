@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.19
+Win Percentage (%): 91.79
+Avg Guess Count: 4.85
+Total Avg Guess Time (ms): 1.32
+Avg Game Duration (ms): 7.44
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+QUEUE,1,True,0.0,0.78
+BEGUN,2,True,2.53,3.63
+CREME,2,True,3.9,5.22
+QUACK,2,True,2.41,3.63
+EQUAL,2,True,3.45,5.18
+QUIET,2,True,3.06,4.51
+ABBEY,2,True,3.46,4.8
+BLUER,2,True,3.78,5.78
+QUAKE,2,True,2.98,4.35
+AUDIO,2,True,3.05,4.61
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,11,False,0.82,15.91
+TATTY,11,False,0.57,10.79
+WOUND,10,False,0.35,7.88
+TALLY,10,False,0.72,11.72
+ROWER,10,False,0.61,10.48
+WOOER,10,False,0.54,9.38
+TAWNY,10,False,0.63,10.24
+TIGHT,10,False,0.59,9.96
+WAFER,9,False,0.76,11.62
+MOWER,9,False,0.46,6.59

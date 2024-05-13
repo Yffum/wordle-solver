@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.14
+Win Percentage (%): 97.75
+Avg Guess Count: 3.98
+Total Avg Guess Time (ms): 1.33
+Avg Game Duration (ms): 5.89
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PESTO,2,True,3.12,4.5
+DRAPE,2,True,3.02,4.66
+BERRY,2,True,3.6,5.49
+TRIBE,2,True,3.3,4.94
+CRIMP,2,True,3.02,4.55
+ADORE,2,True,2.84,4.25
+ABASE,2,True,3.8,5.46
+PHONY,2,True,3.66,5.23
+AFTER,2,True,3.41,5.14
+BERTH,2,True,3.68,5.48
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,10,False,0.41,9.48
+WISER,9,False,0.5,8.64
+WOOER,9,False,0.51,9.27
+ROWER,9,False,0.56,9.71
+TIGHT,9,False,0.46,8.44
+ROVER,8,False,0.62,9.2
+MOWER,8,False,0.55,7.88
+RISER,8,False,0.59,8.66
+SIGHT,8,False,0.54,8.52
+ROGER,8,False,0.63,8.81

@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.87
+Win Percentage (%): 97.84
+Avg Guess Count: 3.98
+Total Avg Guess Time (ms): 2.2
+Avg Game Duration (ms): 9.69
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+TRACE,1,True,0.0,1.09
+CHILD,2,True,4.04,5.91
+TAPIR,2,True,3.7,5.6
+THIGH,2,True,7.92,12.06
+FANCY,2,True,7.68,10.93
+BIRTH,2,True,5.28,7.88
+THIRD,2,True,5.3,7.55
+BICEP,2,True,4.86,7.7
+BRING,2,True,2.73,3.95
+TRIAD,2,True,4.07,5.99
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WAFER,9,False,0.53,10.41
+ROVER,9,False,1.48,22.96
+SANER,9,False,0.55,10.78
+WIGHT,9,False,0.69,12.68
+WAVER,9,False,1.26,24.11
+MAMMY,8,False,0.76,11.85
+ROWER,8,False,0.74,10.3
+WOOER,8,False,0.88,13.14
+RIPER,8,False,0.79,11.64
+SAFER,8,False,0.8,13.92

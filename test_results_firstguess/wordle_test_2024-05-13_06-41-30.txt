@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.47
+Win Percentage (%): 98.75
+Avg Guess Count: 3.91
+Total Avg Guess Time (ms): 1.71
+Avg Game Duration (ms): 7.46
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLANT,1,True,0.0,2.2
+SCALD,2,True,3.96,5.91
+AGAIN,2,True,3.59,5.25
+BRAND,2,True,3.3,4.56
+SCION,2,True,8.79,12.61
+LEANT,2,True,4.8,7.41
+SLOTH,2,True,3.46,5.48
+APTLY,2,True,7.24,11.06
+SATYR,2,True,3.99,5.76
+SMELT,2,True,3.51,5.27
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROGER,9,False,0.87,16.24
+ROWER,9,False,0.54,8.76
+POWER,8,False,0.87,11.58
+WASTE,8,False,0.47,8.08
+MAMMY,8,False,0.66,9.79
+MOWER,8,False,0.77,10.18
+WOUND,8,False,0.98,13.84
+WAVER,8,False,0.82,12.97
+WATCH,8,False,0.56,9.11
+ROVER,8,False,0.78,11.82

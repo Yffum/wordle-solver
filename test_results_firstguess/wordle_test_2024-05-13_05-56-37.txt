@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.01
+Win Percentage (%): 95.21
+Avg Guess Count: 4.68
+Total Avg Guess Time (ms): 1.18
+Avg Game Duration (ms): 6.34
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PITHY,2,True,2.57,3.99
+PHOTO,2,True,2.25,3.42
+CHAMP,2,True,2.36,3.56
+DEPTH,2,True,2.02,3.19
+ABATE,2,True,2.63,3.87
+EIGHT,2,True,2.38,3.59
+HAPPY,2,True,2.23,3.42
+THUMP,2,True,2.33,3.57
+AGAPE,2,True,2.68,3.95
+BATHE,2,True,2.28,3.46
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,10,False,0.28,6.58
+TIGHT,9,False,0.32,6.26
+VERVE,8,False,0.96,10.79
+BUNNY,8,False,0.7,8.27
+STOVE,8,False,0.5,7.12
+WAIVE,8,False,0.92,10.49
+WISER,8,False,1.02,11.27
+SIGHT,8,False,0.35,5.79
+VAUNT,8,False,0.57,7.44
+SAVVY,8,False,0.55,6.27

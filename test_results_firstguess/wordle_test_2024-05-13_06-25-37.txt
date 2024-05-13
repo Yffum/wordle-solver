@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 0.53
+Win Percentage (%): 97.62
+Avg Guess Count: 4.04
+Total Avg Guess Time (ms): 0.59
+Avg Game Duration (ms): 2.64
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ARISE,1,True,0.0,0.26
+MISER,2,True,1.59,2.22
+SHIED,2,True,1.43,2.15
+ADORE,2,True,1.56,2.33
+BASAL,2,True,1.34,2.05
+BLISS,2,True,1.67,2.43
+ARTSY,2,True,1.69,2.33
+BRAND,2,True,1.67,2.31
+PROSE,2,True,1.75,2.51
+BISON,2,True,1.21,1.8
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WOOER,10,False,0.19,4.32
+ROWER,10,False,0.19,4.07
+VAUNT,9,False,0.22,4.0
+POWER,9,False,0.21,3.95
+ROVER,9,False,0.21,3.65
+MOWER,9,False,0.22,3.75
+WAVER,9,False,0.2,3.61
+SHAVE,8,False,0.21,3.33
+MAMMY,8,False,0.23,3.45
+POKER,8,False,0.28,3.8

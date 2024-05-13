@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 0.57
+Win Percentage (%): 94.08
+Avg Guess Count: 4.78
+Total Avg Guess Time (ms): 0.71
+Avg Game Duration (ms): 3.72
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+FIFTY,2,True,1.29,1.85
+FUDGE,2,True,1.27,1.91
+BLUFF,2,True,1.3,1.91
+AFIRE,2,True,1.19,1.74
+HEFTY,2,True,1.14,1.62
+AFOUL,2,True,1.33,1.94
+ABOUT,2,True,1.32,1.88
+AUNTY,2,True,1.91,2.59
+JIFFY,2,True,1.28,1.93
+FLYER,2,True,1.15,1.72
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SAVVY,12,False,0.22,4.89
+SAVOY,11,False,0.22,4.59
+WARTY,10,False,0.26,4.54
+SASSY,10,False,0.25,4.25
+TATTY,10,False,0.26,4.41
+TASTY,10,False,0.26,4.49
+WOUND,9,False,0.21,3.7
+NASTY,9,False,0.31,4.48
+TAWNY,9,False,0.31,4.41
+ZESTY,9,False,0.29,4.49

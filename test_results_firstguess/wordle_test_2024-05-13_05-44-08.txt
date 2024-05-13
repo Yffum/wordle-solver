@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 0.6
+Win Percentage (%): 94.64
+Avg Guess Count: 4.77
+Total Avg Guess Time (ms): 0.73
+Avg Game Duration (ms): 3.94
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+PHONY,2,True,1.31,1.93
+ALPHA,2,True,1.71,2.34
+HAIRY,2,True,1.52,2.28
+YACHT,2,True,1.48,2.29
+PYGMY,2,True,1.29,1.91
+ABYSS,2,True,1.2,1.77
+LYMPH,2,True,1.36,1.96
+BYLAW,2,True,1.27,1.97
+HIPPO,2,True,1.55,2.22
+LYNCH,2,True,1.23,1.88
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,10,False,0.19,4.76
+FUZZY,9,False,0.24,4.06
+TIGHT,9,False,0.22,4.24
+TATTY,9,False,0.22,3.68
+GROWN,8,False,0.57,6.29
+ROVER,8,False,0.52,5.46
+TALLY,8,False,0.25,3.56
+DOWRY,8,False,0.27,3.66
+ROWER,8,False,0.59,6.42
+SAVVY,8,False,0.31,4.55

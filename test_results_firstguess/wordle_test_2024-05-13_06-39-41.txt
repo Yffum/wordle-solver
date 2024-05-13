@@ -1,0 +1,35 @@
+Date: 2024-05-13
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.22
+Win Percentage (%): 96.89
+Avg Guess Count: 4.07
+Total Avg Guess Time (ms): 1.32
+Avg Game Duration (ms): 6.19
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+FORTH,2,True,3.02,4.38
+RETRO,2,True,5.81,9.13
+BEACH,2,True,2.38,3.45
+RIGHT,2,True,3.12,4.8
+BLURT,2,True,4.13,6.16
+BIOME,2,True,3.02,4.56
+BATHE,2,True,3.12,4.86
+CREDO,2,True,3.59,5.31
+LOATH,2,True,4.08,6.02
+QUOTA,2,True,2.76,4.28
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+LOWER,10,False,0.26,5.46
+WOUND,10,False,0.92,22.09
+WOOER,10,False,0.41,8.85
+SOWER,9,False,0.49,9.42
+POSER,9,False,0.47,8.77
+GRAZE,9,False,0.43,8.16
+LOVER,9,False,0.48,8.88
+SOUND,9,False,0.44,7.92
+POWER,9,False,0.49,9.11
+VAUNT,9,False,0.41,8.44
