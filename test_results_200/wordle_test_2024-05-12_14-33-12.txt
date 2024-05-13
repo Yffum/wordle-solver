@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: brute
+Dataset mode: hard
+Test Size: 200
+Test Duration (min): 0.11
+Win Percentage (%): 87.0
+Avg Guess Count: 5.81
+Total Avg Guess Time (ms): 5.42
+Avg Game Duration (ms): 31.42
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+BELOW,5,True,6.19,31.16
+WAIVE,5,True,6.26,31.57
+PRIZE,5,True,5.9,29.71
+ROAST,5,True,7.45,37.5
+AUDIO,5,True,5.56,28.06
+NORTH,5,True,5.82,29.41
+EXCEL,5,True,6.44,32.46
+BLUFF,5,True,5.47,27.6
+PLANK,5,True,6.72,33.86
+STEEP,5,True,7.11,35.85
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+HATCH,8,False,4.36,35.5
+HOUND,8,False,3.74,30.3
+HOMER,8,False,4.04,32.73
+GRAZE,8,False,4.97,40.23
+JOKER,8,False,3.98,32.21
+GIVER,7,False,4.14,29.3
+JOIST,7,False,4.39,31.08
+HASTE,7,False,8.01,56.53
+FATTY,7,False,4.88,34.53
+GLEAM,7,False,5.31,37.76

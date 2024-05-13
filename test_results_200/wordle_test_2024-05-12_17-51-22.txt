@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: greedy
+Dataset mode: hard
+Test Size: 200
+Test Duration (min): 3.98
+Win Percentage (%): 95.5
+Avg Guess Count: 4.57
+Total Avg Guess Time (ms): 276.01
+Avg Game Duration (ms): 1193.37
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+HOIST,4,True,1590.11,6360.75
+SCOOP,4,True,9.04,36.41
+HAUNT,4,True,4.14,16.77
+COMMA,4,True,5.7,23.04
+SPIKE,4,True,169.76,679.33
+GAFFE,4,True,28.29,113.44
+RADII,4,True,3.99,16.17
+MUMMY,4,True,15.07,60.52
+ROUSE,4,True,85.87,343.74
+GLEAN,4,True,45.23,181.2
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+JAUNT,8,False,1.27,10.6
+DROWN,7,False,11.37,80.0
+ERODE,7,False,87.94,616.09
+VAUNT,7,False,1.45,10.56
+KRILL,7,False,286.47,2005.81
+JOKER,7,False,0.71,5.33
+JOLLY,7,False,128.46,899.76
+KITTY,7,False,7.12,50.2
+ROWER,7,False,0.55,4.22
+GLAZE,6,True,294.33,1766.47

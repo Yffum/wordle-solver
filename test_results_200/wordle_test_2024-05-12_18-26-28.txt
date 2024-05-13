@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: astar
+Dataset mode: random
+Test Size: 200
+Test Duration (min): 10.09
+Win Percentage (%): 99.0
+Avg Guess Count: 4.34
+Total Avg Guess Time (ms): 699.44
+Avg Game Duration (ms): 3025.64
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WHOLE,4,True,58.97,236.28
+WHELP,4,True,208.59,834.61
+CLEAR,4,True,8.83,35.57
+SNOWY,4,True,2249.8,8999.49
+ANGRY,4,True,1804.22,7217.15
+CAUSE,4,True,0.48,2.13
+BEACH,4,True,2247.68,8990.98
+VIDEO,4,True,126.74,507.25
+HARPY,4,True,247.99,992.26
+GOOEY,4,True,259.86,1039.72
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+JAUNT,8,False,0.93,7.86
+DOLLY,7,False,555.79,3891.12
+GRUNT,6,True,50.7,304.64
+STAGE,6,True,925.07,5550.9
+COVER,6,True,0.2,1.5
+STEAD,6,True,1543.34,9260.58
+IDYLL,5,True,937.02,4685.52
+TWIRL,5,True,1319.45,6597.67
+HARRY,5,True,53.87,269.72
+STOOD,5,True,1914.56,9573.2

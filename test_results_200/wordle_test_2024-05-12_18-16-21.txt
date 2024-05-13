@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: astar
+Dataset mode: hard
+Test Size: 200
+Test Duration (min): 9.75
+Win Percentage (%): 94.0
+Avg Guess Count: 4.58
+Total Avg Guess Time (ms): 660.25
+Avg Game Duration (ms): 2925.53
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,4,True,2.31,9.46
+IMPEL,4,True,92.47,370.15
+UPPER,4,True,1.8,7.41
+AMBLE,4,True,1346.46,5386.12
+MAIZE,4,True,34.59,138.63
+MOUND,4,True,87.92,351.93
+STOMP,4,True,6.8,27.42
+RELIC,4,True,123.64,494.82
+FIFTY,4,True,1546.37,6185.76
+HAZEL,4,True,1.81,7.47
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WAVER,8,False,0.33,3.06
+JAUNT,8,False,1.06,8.92
+JOLLY,8,False,475.59,3805.32
+RIVER,7,False,0.83,6.18
+VAUNT,7,False,1.13,8.31
+JUDGE,7,False,479.29,3355.56
+WAFER,7,False,0.35,2.8
+KITTY,7,False,17.13,120.38
+WREAK,7,False,529.25,3705.32
+KRILL,7,False,1096.48,7675.94

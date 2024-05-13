@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: csp
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 0.49
+Win Percentage (%): 98.79
+Avg Guess Count: 3.87
+Total Avg Guess Time (ms): 0.57
+Avg Game Duration (ms): 2.34
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,1,True,0.0,0.34
+EASEL,2,True,1.26,1.84
+SAFER,2,True,1.22,1.81
+TRACE,2,True,1.31,1.83
+BLIMP,2,True,1.37,1.98
+BELCH,2,True,1.19,1.71
+BLOKE,2,True,1.44,1.94
+LOOSE,2,True,1.35,2.0
+DUSTY,2,True,1.2,1.73
+SLEET,2,True,1.21,1.78
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WIGHT,9,False,0.17,3.43
+VAUNT,9,False,0.17,3.18
+ROGER,8,False,0.25,3.5
+WAVER,8,False,0.2,3.09
+TATTY,8,False,0.19,3.01
+ROWER,8,False,0.23,3.55
+TAUNT,8,False,0.19,3.35
+WOOER,8,False,0.23,3.3
+TIGHT,8,False,0.2,3.52
+SAVVY,7,False,0.22,2.69

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: bfs
+Dataset mode: easy
+Test Size: 200
+Test Duration (min): 46.2
+Win Percentage (%): 100.0
+Avg Guess Count: 4.26
+Total Avg Guess Time (ms): 3241.86
+Avg Game Duration (ms): 13860.39
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,4,True,10419.67,41679.2
+STARE,4,True,12094.15,48376.9
+SAUNA,4,True,24.14,96.82
+BEADY,4,True,3495.87,13983.8
+SUITE,4,True,11294.62,45178.81
+TITLE,4,True,452.04,1808.45
+TRAIT,4,True,462.02,1848.41
+CEASE,4,True,267.61,1070.74
+CLOTH,4,True,563.76,2255.36
+POSSE,4,True,434.49,1738.26
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GOLLY,6,True,2534.65,15208.34
+STALL,6,True,3320.39,19922.93
+FILLY,6,True,2136.26,12818.1
+STINT,6,True,5543.42,33261.08
+STATE,6,True,3732.98,22398.48
+TODDY,5,True,2749.85,13749.67
+DEALT,5,True,4026.09,20130.9
+GLASS,5,True,3586.0,17930.43
+SWATH,5,True,8139.06,40695.78
+SPINE,5,True,10009.18,50046.36

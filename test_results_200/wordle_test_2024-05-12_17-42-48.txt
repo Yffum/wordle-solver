@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: dfs
+Dataset mode: random
+Test Size: 200
+Test Duration (min): 20.67
+Win Percentage (%): 99.5
+Avg Guess Count: 4.28
+Total Avg Guess Time (ms): 1453.03
+Avg Game Duration (ms): 6201.86
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+UNDER,4,True,10.32,41.61
+ABHOR,4,True,115.53,462.42
+MAIZE,4,True,238.6,954.72
+SATIN,4,True,0.05,0.47
+PHONY,4,True,267.14,1068.83
+RUDER,4,True,3.06,12.47
+ADMIT,4,True,135.42,541.98
+SOLAR,4,True,54.48,218.2
+BLARE,4,True,1750.29,7001.45
+VAULT,4,True,20.39,81.76
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+WOOER,7,False,6.05,42.73
+GROVE,6,True,1829.84,10979.54
+TASTE,6,True,5.75,34.83
+RELAX,6,True,2477.47,14865.37
+STUNG,6,True,38.89,233.74
+FRIED,5,True,46.36,232.14
+STORK,5,True,2918.75,14594.16
+DECAL,5,True,4302.86,21514.74
+ELATE,5,True,896.55,4483.16
+WORTH,5,True,1672.38,8362.33

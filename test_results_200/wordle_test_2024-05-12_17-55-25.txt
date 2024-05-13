@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: greedy
+Dataset mode: random
+Test Size: 200
+Test Duration (min): 4.02
+Win Percentage (%): 99.5
+Avg Guess Count: 4.31
+Total Avg Guess Time (ms): 284.37
+Avg Game Duration (ms): 1206.78
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+HYDRO,4,True,91.07,364.68
+SHALL,4,True,7.33,29.56
+CIRCA,4,True,158.2,633.08
+CROOK,4,True,19.59,78.6
+QUASH,4,True,1249.04,4996.43
+FACET,4,True,5.47,22.13
+BALER,4,True,0.48,2.12
+MAMMY,4,True,1.16,4.87
+DEBUT,4,True,669.82,2679.6
+DECRY,4,True,797.63,3190.84
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+KITTY,7,False,10.78,75.84
+FLAKE,6,True,275.81,1655.32
+GRAND,6,True,41.53,249.59
+WASTE,6,True,1.93,11.91
+RUGBY,6,True,36.87,221.67
+BLADE,6,True,352.58,2115.9
+COVER,6,True,0.27,1.91
+BROAD,6,True,45.86,275.58
+BRAVE,6,True,447.77,2687.12
+BLEAT,6,True,239.98,1440.83

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: brute
+Dataset mode: random
+Test Size: 2315
+Test Duration (min): 1.19
+Win Percentage (%): 98.88
+Avg Guess Count: 3.83
+Total Avg Guess Time (ms): 8.36
+Avg Game Duration (ms): 30.39
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,1,True,15.37,15.45
+SHALE,2,True,13.74,27.63
+HAUTE,2,True,13.43,27.0
+BLEED,2,True,12.63,25.39
+PLANT,2,True,13.3,26.73
+AORTA,2,True,12.64,25.41
+SWATH,2,True,13.73,27.6
+CLASS,2,True,15.8,31.74
+PASTA,2,True,12.62,25.37
+LATTE,2,True,13.72,27.6
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GRAZE,8,False,4.6,37.15
+HOMER,8,False,3.72,30.18
+HOUND,8,False,3.39,27.5
+HATCH,8,False,4.01,32.41
+JOKER,8,False,4.03,32.78
+FATTY,7,False,4.43,31.31
+JOIST,7,False,4.74,33.55
+HORSE,7,False,4.77,33.76
+WREAK,7,False,5.13,36.38
+HASTE,7,False,8.09,57.02

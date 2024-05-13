@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: brute
+Dataset mode: easy
+Test Size: 200
+Test Duration (min): 0.09
+Win Percentage (%): 100.0
+Avg Guess Count: 2.35
+Total Avg Guess Time (ms): 12.1
+Avg Game Duration (ms): 27.68
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,1,True,16.09,16.4
+LOOSE,2,True,12.93,26.02
+WHALE,2,True,13.74,27.63
+TRITE,2,True,12.9,25.91
+ASSAY,2,True,12.57,25.28
+SLAVE,2,True,14.22,28.57
+GUSTY,2,True,12.94,26.02
+CRONE,2,True,12.16,24.41
+BLISS,2,True,13.11,26.38
+EASEL,2,True,13.32,26.79
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+CHICK,3,True,8.33,25.15
+WHITE,3,True,9.78,29.51
+GOLLY,3,True,9.2,27.77
+COAST,3,True,9.77,29.48
+PASTY,3,True,9.99,30.13
+FILER,3,True,9.19,27.76
+FRESH,3,True,9.44,28.52
+ALPHA,3,True,10.02,30.27
+TRASH,3,True,10.1,30.5
+APTLY,3,True,10.02,30.24

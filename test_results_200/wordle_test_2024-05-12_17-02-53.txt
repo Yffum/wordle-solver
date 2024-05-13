@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: dfs
+Dataset mode: easy
+Test Size: 200
+Test Duration (min): 29.11
+Win Percentage (%): 99.5
+Avg Guess Count: 4.25
+Total Avg Guess Time (ms): 2038.81
+Avg Game Duration (ms): 8731.59
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+LEASH,4,True,144.07,576.6
+BEADY,4,True,1296.58,5186.69
+SUITE,4,True,11642.03,46568.47
+TITLE,4,True,262.28,1049.45
+TRAIT,4,True,299.68,1199.07
+CEASE,4,True,148.24,593.27
+STALL,4,True,4692.56,18770.6
+CLOTH,4,True,272.94,1092.12
+WRATH,4,True,6622.93,26492.05
+SAUNA,4,True,11.76,47.36
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+FOLLY,7,False,2330.88,16316.79
+STATE,6,True,3104.01,18624.7
+GOLLY,6,True,2386.43,14319.08
+EAGER,6,True,0.44,3.01
+BLAST,5,True,3828.22,19141.55
+ALGAE,5,True,1011.39,5057.51
+BLEED,5,True,47.8,239.41
+SLEET,5,True,35.8,179.45
+FRIED,5,True,49.48,247.8
+VILLA,5,True,2121.26,10606.75

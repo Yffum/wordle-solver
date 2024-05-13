@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: dfs
+Dataset mode: hard
+Test Size: 200
+Test Duration (min): 19.18
+Win Percentage (%): 98.0
+Avg Guess Count: 4.45
+Total Avg Guess Time (ms): 1340.03
+Avg Game Duration (ms): 5754.12
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+AGAPE,4,True,1112.76,4451.36
+HILLY,4,True,3879.8,15519.51
+WIMPY,4,True,6385.34,25541.67
+STEEP,4,True,3.12,12.73
+STORM,4,True,6566.49,26266.26
+MATCH,4,True,17.69,71.01
+PLANK,4,True,5223.02,20892.37
+CHAFF,4,True,21.29,85.41
+PUPAL,4,True,3431.33,13725.7
+KNACK,4,True,3055.18,12221.07
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,7,False,6.18,43.65
+GRAVE,7,False,485.23,3397.16
+GIVER,7,False,2.06,14.8
+STAVE,7,False,2325.78,16281.05
+DROWN,6,True,196.94,1182.06
+JOLLY,6,True,2391.77,14351.12
+RIPER,6,True,5.28,32.03
+GRAZE,6,True,587.71,3526.77
+JUDGE,6,True,920.21,5521.78
+FREAK,6,True,541.86,3251.63

@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: bfs
+Dataset mode: hard
+Test Size: 200
+Test Duration (min): 33.01
+Win Percentage (%): 95.5
+Avg Guess Count: 4.66
+Total Avg Guess Time (ms): 2235.24
+Avg Game Duration (ms): 9903.2
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+BELOW,4,True,3176.19,12705.03
+BANJO,4,True,177.17,708.96
+VAGUE,4,True,371.77,1487.38
+DREAM,4,True,5426.06,21704.55
+DRAPE,4,True,5335.03,21340.42
+MANIC,4,True,27.23,109.18
+HOIST,4,True,8192.4,32769.88
+OMEGA,4,True,389.74,1559.22
+TRIBE,4,True,9091.34,36365.67
+RURAL,4,True,8396.73,33587.22
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROWER,8,False,4.74,38.34
+GRAZE,8,False,1692.41,13539.85
+WAVER,8,False,0.93,7.89
+VAUNT,8,False,6.43,51.91
+GRAVE,7,False,1894.97,13265.31
+STAVE,7,False,2766.45,19365.73
+KRILL,7,False,2157.63,15103.93
+JOLLY,7,False,2106.88,14748.71
+WAFER,7,False,0.98,7.26
+FREAK,6,True,3299.52,19797.65

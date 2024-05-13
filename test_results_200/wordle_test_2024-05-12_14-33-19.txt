@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: brute
+Dataset mode: random
+Test Size: 200
+Test Duration (min): 0.1
+Win Percentage (%): 99.5
+Avg Guess Count: 3.76
+Total Avg Guess Time (ms): 8.19
+Avg Game Duration (ms): 29.42
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+BLARE,2,True,13.91,27.93
+TRACE,2,True,13.09,26.31
+LEFTY,2,True,13.03,26.19
+BLISS,2,True,12.75,25.62
+GLORY,2,True,12.44,25.0
+LEVEL,2,True,12.68,25.52
+DELTA,2,True,13.74,27.62
+STONE,2,True,13.6,27.36
+TEASE,2,True,13.58,27.3
+LAPEL,2,True,13.88,27.91
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GLEAM,7,False,4.96,35.09
+KITTY,6,True,4.67,28.24
+MOUND,6,True,4.35,26.43
+AGAPE,6,True,5.38,32.58
+HANDY,6,True,4.73,28.66
+DUCHY,5,True,5.32,26.88
+STANK,5,True,6.93,34.93
+AZURE,5,True,6.27,31.6
+PLANK,5,True,6.77,34.11
+CABBY,5,True,5.92,29.82

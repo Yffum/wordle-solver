@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: astar
+Dataset mode: easy
+Test Size: 200
+Test Duration (min): 11.14
+Win Percentage (%): 100.0
+Avg Guess Count: 4.25
+Total Avg Guess Time (ms): 779.68
+Avg Game Duration (ms): 3342.82
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+LEASH,4,True,78.42,313.95
+SUITE,4,True,3272.92,13091.99
+TITLE,4,True,119.38,477.79
+TRAIT,4,True,57.51,230.38
+CEASE,4,True,44.27,177.33
+DEALT,4,True,1209.0,4836.27
+STALL,4,True,2212.1,8848.67
+CLOTH,4,True,176.09,704.61
+WRATH,4,True,2280.03,9120.4
+BEADY,4,True,2805.48,11222.21
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+GOLLY,6,True,641.68,3850.53
+EAGER,6,True,0.31,2.18
+STARK,6,True,792.39,4754.92
+BLARE,6,True,1980.09,11881.09
+STATE,6,True,809.33,4856.46
+DELTA,5,True,807.46,4037.69
+BOOTY,5,True,614.5,3072.9
+ARRAY,5,True,593.98,2970.3
+FREER,5,True,1.47,7.64
+SALVE,5,True,71.18,356.33

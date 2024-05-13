@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: bfs
+Dataset mode: random
+Test Size: 200
+Test Duration (min): 41.11
+Win Percentage (%): 100.0
+Avg Guess Count: 4.26
+Total Avg Guess Time (ms): 2935.67
+Avg Game Duration (ms): 12332.5
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+CHUMP,3,True,0.0,0.2
+RELAY,4,True,11373.76,45495.37
+SUSHI,4,True,661.76,2647.47
+STUMP,4,True,1.81,7.53
+DINGY,4,True,3998.67,15995.02
+MAMMY,4,True,21.36,85.75
+GIPSY,4,True,6244.04,24976.5
+ANGER,4,True,11.26,45.36
+SWAMP,4,True,28.97,116.19
+BICEP,4,True,18.85,75.85
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+ROGER,6,True,6.48,39.31
+JAZZY,6,True,126.21,757.8
+SWILL,6,True,2335.52,14013.65
+RARER,6,True,0.91,5.81
+WOVEN,6,True,45.29,272.18
+RELAX,6,True,5184.74,31109.04
+STATE,6,True,3842.14,23053.45
+BRAVE,6,True,2248.57,13491.93
+WIELD,6,True,2541.56,15249.9
+FILLY,6,True,2186.14,13117.37

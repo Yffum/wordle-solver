@@ -1,0 +1,35 @@
+Date: 2024-05-12
+Search Mode: greedy
+Dataset mode: easy
+Test Size: 200
+Test Duration (min): 4.55
+Win Percentage (%): 100.0
+Avg Guess Count: 4.2
+Total Avg Guess Time (ms): 327.01
+Avg Game Duration (ms): 1363.58
+
+Top 10 Easiest Games (fewest guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+SLATE,4,True,946.34,3785.8
+SUITE,4,True,548.41,2193.93
+TITLE,4,True,66.12,264.77
+TRAIT,4,True,110.81,443.5
+CEASE,4,True,95.27,381.37
+STALL,4,True,232.0,928.31
+CLOTH,4,True,70.88,283.82
+WRATH,4,True,802.85,3211.7
+SLASH,4,True,917.76,3671.33
+BEADY,4,True,921.02,3684.39
+
+Top 10 Hardest Games (most guesses):
+Answer,Guess Count,Success,Avg Guess Time (ms),Game Duration (ms)
+FILLY,6,True,48.73,292.86
+STARK,6,True,316.86,1901.65
+EAGER,6,True,0.28,2.03
+DROLL,5,True,194.92,975.01
+TOAST,5,True,760.84,3804.64
+TEASE,5,True,422.04,2110.67
+AWAIT,5,True,21.67,108.67
+TODDY,5,True,355.58,1778.3
+GOLLY,5,True,146.4,732.42
+BLAST,5,True,212.08,1060.81
