@@ -1,7 +1,7 @@
 # Wordle Solver
 
 ## Description
-This program uses its own Wordle engine, modeled to perform exactly like the New York Times Wordle game. The program features a variety of Wordle-solving search agents with varying speed and accuracy for testing and comparison.
+This program uses its own Wordle engine, modeled to perform exactly like the New York Times Wordle game. The program features a variety of Wordle-solving search agents with varying speed and accuracy for testing and comparison. The interface is terminal-based.
 
 See [How to Play Wordle](https://www.nytimes.com/2023/08/01/crosswords/how-to-talk-about-wordle.html).
 
@@ -15,7 +15,7 @@ Our program uses the numbers (0, 1, 2) as feedback, instead of the colors (gray,
 ## Usage
 Navigate to the program directory.
 
-To run the Wordle Solver, you can run `main.py` like so:
+To run the Wordle Solver, you can run `main.py` in terminal like so:
 
 `$ python main.py <agent_type> <test_length> <test_mode>`
 
@@ -24,6 +24,8 @@ where the three bracketed arguments are replaced like so:
 `<agent_type>`  - The search agent type (`brute`, `csp`, `bfs`, `dfs`, `greedy`, `astar`)  
 `<test_length>` - The number of games to solve (`1` to `1000`)  
 `<test_mode>`   - The difficulty level of games  (`hard`, `easy`, `random`)
+
+The `random` test mode uses random words from the set of valid solutions. The `hard` and `easy` test modes use a list of words ordered by the number of guesses it took our `brute` agent to solve. The `hard` mode uses words that took the most guesses, and the `easy` mode uses words that took the fewest guesses.
 
 To play Wordle using terminal input, run `play.py` with no arguments like so:
 
