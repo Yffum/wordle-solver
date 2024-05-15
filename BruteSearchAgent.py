@@ -121,11 +121,6 @@ class BruteSearchAgent(SearchAgent):
         # TESTING
         print("Best Score:", -best_score)
 
-        # while not rated_words.empty():
-        #      score, word = rated_words.get()
-        #      if word == "LASER":
-        #         print("Score:", score, "Word:", word)
-
         # Remove word from vocab to prevent repetition
         self.vocab.discard(best_word)
         return best_word

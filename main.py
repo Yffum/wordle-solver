@@ -16,7 +16,7 @@ def test_wordle(data: DataManager, agent_type: str, test_length: int, test_mode:
     """
     # Check for single test word
     if SINGLE_TEST_WORD != None:
-        Tester.run(agent_type, [SINGLE_TEST_WORD], data)
+        Tester.run(agent_type, [SINGLE_TEST_WORD], data, test_mode)
     else: 
         test_words = data.get_answers(test_length, test_mode)
         Tester.run(agent_type, test_words, data, test_mode)
@@ -24,10 +24,10 @@ def test_wordle(data: DataManager, agent_type: str, test_length: int, test_mode:
     
 def print_how_to():
     print("Run the program with three arguments like so:")
-    print("$python main.py <agent_type> <test_length> <test_mode>")
+    print("$ python main.py <agent_type> <test_length> <test_mode>")
     print("    <agent_type>  - The search agent type (brute, csp, bfs, dfs, greedy, astar)")
     print("    <test_length> - The number of games to solve (1 to 1000)")
-    print("    <test_mode> - The difficulty level of games  (hard, easy, random)")
+    print("    <test_mode>   - The difficulty level of games  (hard, easy, random)")
 
 def main():
     # Get system arguments
