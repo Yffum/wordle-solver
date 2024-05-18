@@ -73,3 +73,25 @@ Greedy search is an obvious approach for our search because we are already evalu
 
 ### A* Search
 A* search expands on greedy search by not only considering the word score of each node, but also its depth. In order to make the word score heuristic more comparable to depth, we scale the difference between a given word score and the threshold by a constant to estimate the distance of a goal node. This heuristic is added to the depth to determine the priority of each node in the priority queue. The scaling constant was determined experimentally, to minimize search time, but more testing is required to find an optimal constant in terms of both search time, and guess count.
+
+### CSP
+CSP module defines three elements:
+    Variables: letter positions: GuessStatus: Green, Yellow, Gray letter Info
+    Domains: possible letters: {A,B,C, …, X,Y,Z}
+    Constraints are based on feedback from the game
+
+    For example, when the answer is "SNAKE," constraints can be updated at each step as follows.
+    First guess word (SLATE)
+        : Green: S****, Yellow: {2: 'A', 4: 'E'}, Gray: LT, 
+        : Unused: BCDFGHIJKMNOPQRUVWXYZ
+    2nd guess word (BIDDY)
+        : Green: S****, Yellow: {2: 'A', 4: 'E', 1: 'A', 3: 'E'}, Gray: FLRT, 
+        : Unused: BCDGHIJKMNOPQUVWXYZ
+    3rd guess word (CHOCK)
+        : Green: S**A*, Yellow: {2: 'A', 4: 'E,N', 1: 'A,E', 3: 'E'}, Gray: DFLRT, 
+        : Unused: BCGHIJKMOPQUVWXYZ
+    4th guess word (SNAKE) -> Answer
+        : Green: SNAKE, Yellow: {2: 'A', 4: 'E,N', 1: 'A,E', 3: 'E'}, Gray: DFLRT, 
+    : Unused: BCGHIJMOPQUVWXYZ
+
+The Solver Class initializes a game with the first guessed word. The Dictionary Class receives the first guessed word and communicates with the GuessState Class to obtain feedback and determine the next guessed word. The GuessStatus Class maintains constraints based on guessed words. The Solver Class ends a game when the guessed word matches the answer.
